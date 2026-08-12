@@ -93,29 +93,31 @@ export function ForSaleSection({ tone = "light" }: { tone?: "light" | "ink" | "s
         <SectionTitle>Currently on the market.</SectionTitle>
       </Reveal>
       {REA_FOR_SALE.length ? (
-        <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-          {REA_FOR_SALE.map((l, i) => (
-            <Reveal key={l.id} delay={i * 100}>
-              <ListingCard listing={l} />
-            </Reveal>
-          ))}
-        </div>
+        <>
+          <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+            {REA_FOR_SALE.map((l, i) => (
+              <Reveal key={l.id} delay={i * 100}>
+                <ListingCard listing={l} />
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={200}>
+            <CTA href={REA.profileUrl} variant="outline" className="mt-14">
+              View all listings on realestate.com.au
+            </CTA>
+          </Reveal>
+        </>
       ) : (
         <Reveal delay={100}>
           <div className="mt-14 border-t border-current/15 pt-8">
             <p className="max-w-2xl text-lg leading-relaxed opacity-75">
-              No listings are publicly advertised right now. New campaigns appear here as soon as
-              they go live on realestate.com.au — and several properties are handled off-market
-              before they are advertised.
+              There are currently no publicly advertised properties for sale under Sid Bhattal on
+              realestate.com.au. New campaigns appear here as soon as they go live — and several
+              properties are handled off-market before they are advertised.
             </p>
-            <a
-              href={REA.profileUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-block border-b border-current/40 pb-1 text-[0.625rem] font-semibold uppercase tracking-[0.2em] opacity-70 hover:opacity-100"
-            >
-              Check my live listings on realestate.com.au
-            </a>
+            <CTA href={REA.profileUrl} variant="outline" className="mt-8">
+              View Sid's live REA profile
+            </CTA>
           </div>
         </Reveal>
       )}
