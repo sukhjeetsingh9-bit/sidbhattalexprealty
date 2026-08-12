@@ -11,6 +11,7 @@ import {
   Section,
   SectionTitle,
 } from "@/components/brand/primitives";
+import { ForSaleSection, RecentlySoldSection } from "@/components/brand/rea";
 import { SHOWCASE_NOTE } from "@/lib/brand";
 import property1 from "@/assets/property-1.jpg";
 import property2 from "@/assets/property-2.jpg";
