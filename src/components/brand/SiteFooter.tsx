@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 import { BRAND, CONTACT, NAV, SOCIALS } from "@/lib/brand";
+import { REA } from "@/lib/rea";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
