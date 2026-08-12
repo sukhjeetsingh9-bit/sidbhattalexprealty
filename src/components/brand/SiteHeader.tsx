@@ -32,12 +32,9 @@ export function SiteHeader() {
         }`}
       >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5 md:px-10">
-          <Link to="/" className="flex items-baseline gap-3" onClick={() => setOpen(false)}>
+          <Link to="/" className="flex items-baseline" onClick={() => setOpen(false)}>
             <span className="text-base font-semibold uppercase tracking-[0.3em]">
-              {BRAND.lastName}
-            </span>
-            <span className="hidden text-[0.625rem] font-medium uppercase tracking-[0.28em] opacity-60 sm:inline">
-              {BRAND.agency}
+              {BRAND.mark}
             </span>
           </Link>
 
@@ -79,7 +76,7 @@ export function SiteHeader() {
         <div className="fixed inset-0 z-[60] flex flex-col bg-ink text-ink-foreground lg:hidden">
           <div className="flex items-center justify-between px-6 py-5">
             <span className="text-base font-semibold uppercase tracking-[0.3em]">
-              {BRAND.lastName}
+              {BRAND.mark}
             </span>
             <button
               type="button"

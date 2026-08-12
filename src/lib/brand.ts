@@ -8,6 +8,7 @@ export const BRAND = {
   firstName: "Sid",
   lastName: "Bhattal",
   fullName: "Sid Bhattal",
+  mark: "SID BHATTAL - EXP REALTY",
   jobTitle: "Real Estate Agent",
   agency: "eXp Realty",
   positioning: "North-Eastern Adelaide expertise. South Australia-wide reach.",
