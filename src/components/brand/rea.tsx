@@ -1,4 +1,4 @@
-import { Eyebrow, Notice, Reveal, Section, SectionTitle } from "@/components/brand/primitives";
+import { CTA, Eyebrow, Notice, Reveal, Section, SectionTitle } from "@/components/brand/primitives";
 import {
   REA,
   REA_DISCLAIMER,
