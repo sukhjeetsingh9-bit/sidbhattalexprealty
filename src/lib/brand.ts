@@ -109,6 +109,29 @@ export const RESOURCES = [
   },
 ] as const;
 
+/** Verified external PropertyForMe resources (checked live, HTTP 200). */
+export const PROPERTYFORME = [
+  {
+    title: "Into Spring 2026",
+    body: "The spring selling season outlook — buyer demand, listing volumes and what it means for timing your campaign.",
+    kind: "Market update",
+    href: "https://www.propertyforme.au/into-spring-2026",
+  },
+  {
+    title: "CGT reform explained",
+    body: "What the proposed capital gains tax changes mean for investors, owner-occupiers and holding decisions.",
+    kind: "Explainer",
+    href: "https://www.propertyforme.au/news/cgt-reform-explained",
+  },
+  {
+    title: "Submit a property offer",
+    body: "Lodge a written offer online with your terms, conditions and timeline captured properly the first time.",
+    kind: "Tool",
+    href: "https://www.propertyforme.au/submit-property-offer",
+  },
+] as const;
+
+
 /** Presentation examples only — clearly labelled, never presented as real sales. */
 export const SHOWCASE_NOTE =
   "Presentation examples. Live listings and sold results will appear here once verified.";

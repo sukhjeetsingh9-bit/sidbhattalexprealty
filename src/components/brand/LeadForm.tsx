@@ -26,6 +26,7 @@ export function LeadForm({
   fields = [],
   submitLabel = "Send enquiry",
   tone = "light",
+  defaults,
 }: {
   id?: string;
   title: string;
@@ -34,9 +35,11 @@ export function LeadForm({
   fields?: LeadField[];
   submitLabel?: string;
   tone?: "light" | "ink";
+  defaults?: Record<string, string>;
 }) {
   const all = [...BASE_FIELDS, ...fields];
-  const [values, setValues] = useState<Record<string, string>>({});
+  const [values, setValues] = useState<Record<string, string>>(defaults ?? {});
+
 
   const set = (k: string, v: string) => setValues((prev) => ({ ...prev, [k]: v }));
 
