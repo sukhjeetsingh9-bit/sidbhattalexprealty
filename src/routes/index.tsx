@@ -142,6 +142,9 @@ function Home() {
         </div>
       </Section>
 
+      {/* Active listings — genuine REA data */}
+      <ForSaleSection />
+
       {/* Recently sold — genuine REA data */}
       <RecentlySoldSection tone="stone" limit={3} />
 
