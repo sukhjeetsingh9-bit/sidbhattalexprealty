@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BuyRouteImport } from './routes/buy'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as IntoSpring2026RouteImport } from './routes/into-spring-2026'
 import { Route as MarketRouteImport } from './routes/market'
 import { Route as OfferRouteImport } from './routes/offer'
 import { Route as PropertiesRouteImport } from './routes/properties'
@@ -39,6 +40,11 @@ const BuyRoute = BuyRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntoSpring2026Route = IntoSpring2026RouteImport.update({
+  id: '/into-spring-2026',
+  path: '/into-spring-2026',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MarketRoute = MarketRouteImport.update({
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/buy': typeof BuyRoute
   '/contact': typeof ContactRoute
+  '/into-spring-2026': typeof IntoSpring2026Route
   '/market': typeof MarketRoute
   '/offer': typeof OfferRoute
   '/properties': typeof PropertiesRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/buy': typeof BuyRoute
   '/contact': typeof ContactRoute
+  '/into-spring-2026': typeof IntoSpring2026Route
   '/market': typeof MarketRoute
   '/offer': typeof OfferRoute
   '/properties': typeof PropertiesRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/buy': typeof BuyRoute
   '/contact': typeof ContactRoute
+  '/into-spring-2026': typeof IntoSpring2026Route
   '/market': typeof MarketRoute
   '/offer': typeof OfferRoute
   '/properties': typeof PropertiesRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/buy'
     | '/contact'
+    | '/into-spring-2026'
     | '/market'
     | '/offer'
     | '/properties'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/buy'
     | '/contact'
+    | '/into-spring-2026'
     | '/market'
     | '/offer'
     | '/properties'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/buy'
     | '/contact'
+    | '/into-spring-2026'
     | '/market'
     | '/offer'
     | '/properties'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BuyRoute: typeof BuyRoute
   ContactRoute: typeof ContactRoute
+  IntoSpring2026Route: typeof IntoSpring2026Route
   MarketRoute: typeof MarketRoute
   OfferRoute: typeof OfferRoute
   PropertiesRoute: typeof PropertiesRoute
@@ -201,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/into-spring-2026': {
+      id: '/into-spring-2026'
+      path: '/into-spring-2026'
+      fullPath: '/into-spring-2026'
+      preLoaderRoute: typeof IntoSpring2026RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/market': {
@@ -260,6 +280,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BuyRoute: BuyRoute,
   ContactRoute: ContactRoute,
+  IntoSpring2026Route: IntoSpring2026Route,
   MarketRoute: MarketRoute,
   OfferRoute: OfferRoute,
   PropertiesRoute: PropertiesRoute,
