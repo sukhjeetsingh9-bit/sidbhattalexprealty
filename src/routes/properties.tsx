@@ -11,6 +11,7 @@ import {
   Section,
   SectionTitle,
 } from "@/components/brand/primitives";
+import { ForSaleSection, RecentlySoldSection } from "@/components/brand/rea";
 import { SHOWCASE_NOTE } from "@/lib/brand";
 import property1 from "@/assets/property-1.jpg";
 import property2 from "@/assets/property-2.jpg";
@@ -70,10 +71,14 @@ function PropertiesPage() {
       <PageHero
         eyebrow="Properties"
         title="Every property gets a proper presentation."
-        lead="Live listings, upcoming campaigns and recent results will appear here as they are verified."
+        lead="Current listings and recently sold results, taken directly from my verified realestate.com.au agent profile."
         image={property2}
         alt="Contemporary townhouse facade"
       />
+
+      <ForSaleSection />
+
+      <RecentlySoldSection />
 
       <Section>
         <Reveal>

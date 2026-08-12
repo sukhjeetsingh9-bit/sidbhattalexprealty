@@ -12,6 +12,7 @@ import {
   StatBlock,
 } from "@/components/brand/primitives";
 import { DATA_NOTICE, MARKET_METRICS } from "@/lib/brand";
+import { REA, REA_DISCLAIMER, REA_SNAPSHOT } from "@/lib/rea";
 import suburbAerial from "@/assets/suburb-aerial.jpg";
 
 const TITLE = "Adelaide Market Insights | Sid Bhattal";
@@ -61,6 +62,31 @@ function MarketPage() {
       />
 
       <Section>
+        <Reveal>
+          <Eyebrow>Verified performance</Eyebrow>
+          <SectionTitle>My last 12 months, published by REA.</SectionTitle>
+          <Lead>
+            These figures come straight from my realestate.com.au agent profile and cover properties
+            sold as lead and secondary agent.
+          </Lead>
+        </Reveal>
+        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          {REA_SNAPSHOT.map((m, i) => (
+            <Reveal key={m.label} delay={i * 100}>
+              <StatBlock label={m.label} value={m.value} />
+            </Reveal>
+          ))}
+        </div>
+        <Notice>
+          {REA.sourceLabel} · updated {REA.sourcedOn}. {REA_DISCLAIMER}{" "}
+          <a href={REA.profileUrl} target="_blank" rel="noreferrer" className="text-accent">
+            View the profile
+          </a>
+          .
+        </Notice>
+      </Section>
+
+      <Section tone="stone">
         <Reveal>
           <Eyebrow>Snapshot</Eyebrow>
           <SectionTitle>Current market snapshot.</SectionTitle>

@@ -28,6 +28,11 @@ export const SOCIALS = [
   { label: "Facebook", handle: "Facebook", href: "https://m.facebook.com/profile.php?mibextid=LQQJ4d" },
   { label: "eXp Realty", handle: "expaustralia.com.au", href: "https://www.expaustralia.com.au/" },
   { label: "Agent profile", handle: "expaustralia.com.au/team", href: "https://www.expaustralia.com.au/team/" },
+  {
+    label: "realestate.com.au",
+    handle: "Reviews & listings",
+    href: "https://www.realestate.com.au/agent/sid-bhattal-3321760",
+  },
 ] as const;
 
 export const NAV = [

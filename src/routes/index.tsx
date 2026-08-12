@@ -7,13 +7,13 @@ import {
   Lead,
   Notice,
   NumberedCard,
-  PropertyCard,
   Reveal,
   Section,
   SectionTitle,
   StatBlock,
 } from "@/components/brand/primitives";
-import { BRAND, CONTACT, DATA_NOTICE, MARKET_METRICS, SHOWCASE_NOTE, SUBURBS } from "@/lib/brand";
+import { RecentlySoldSection, ReviewsSection } from "@/components/brand/rea";
+import { BRAND, CONTACT, DATA_NOTICE, MARKET_METRICS, SUBURBS } from "@/lib/brand";
 import heroHome from "@/assets/hero-home.jpg";
 import interior from "@/assets/interior-1.jpg";
 import property1 from "@/assets/property-1.jpg";
@@ -142,50 +142,12 @@ function Home() {
         </div>
       </Section>
 
-      {/* Property showcase */}
-      <Section tone="stone">
-        <Reveal>
-          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-            <div>
-              <Eyebrow>Presentation</Eyebrow>
-              <SectionTitle>How properties are presented.</SectionTitle>
-            </div>
-            <CTA to="/properties" variant="outline">
-              All properties
-            </CTA>
-          </div>
-        </Reveal>
-        <div className="mt-16 grid gap-10 md:grid-cols-3">
-          {[
-            {
-              image: property1,
-              suburb: "North-Eastern Adelaide",
-              headline: "Established family home",
-              meta: ["Family living", "Established garden"],
-              status: "Example",
-            },
-            {
-              image: property2,
-              suburb: "Metro Adelaide",
-              headline: "Low-maintenance townhouse",
-              meta: ["Downsizer", "Investor ready"],
-              status: "Example",
-            },
-            {
-              image: land,
-              suburb: "South Australia",
-              headline: "Development site",
-              meta: ["Land", "Division potential"],
-              status: "Example",
-            },
-          ].map((p, i) => (
-            <Reveal key={p.headline} delay={i * 120}>
-              <PropertyCard {...p} />
-            </Reveal>
-          ))}
-        </div>
-        <Notice>{SHOWCASE_NOTE}</Notice>
-      </Section>
+      {/* Recently sold — genuine REA data */}
+      <RecentlySoldSection tone="stone" limit={3} />
+
+      {/* Client reviews — genuine REA data */}
+      <ReviewsSection />
+
 
       {/* Market snapshot */}
       <Section>
