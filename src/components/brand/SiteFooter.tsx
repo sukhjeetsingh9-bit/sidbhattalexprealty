@@ -73,7 +73,12 @@ export function SiteFooter() {
           <p>
             © {year} {BRAND.fullName} · {BRAND.agency}
           </p>
-          <p>Licence and statutory details: verified data coming soon.</p>
+          <p>
+            {REA.agencyName.replace(" - SA (RLA300185)", " SA")} · {REA.licence} ·{" "}
+            <a href={REA.profileUrl} target="_blank" rel="noreferrer" className="hover:opacity-100">
+              REA profile
+            </a>
+          </p>
         </div>
       </div>
     </footer>
