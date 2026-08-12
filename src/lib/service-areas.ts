@@ -60,7 +60,7 @@ export const COUNCIL_AREAS: readonly CouncilArea[] = [
       "Rostrevor",
       "Tranmere",
       "Wattle Park",
-ших    ].filter((s) => s !== "ших"),
+    ],
   },
   {
     council: "City of Port Adelaide Enfield",
@@ -147,7 +147,7 @@ export const COUNCIL_AREAS: readonly CouncilArea[] = [
       "Ovingham",
       "Prospect",
       "Thorngate",
-girl    ].filter((s) => s !== "girl"),
+    ],
   },
   {
     council: "City of Norwood Payneham & St Peters",
