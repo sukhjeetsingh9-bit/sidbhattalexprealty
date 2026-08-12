@@ -19,7 +19,7 @@ Hard rules:
 - Never guarantee a price, timeframe or outcome.
 - Do not give legal, tax or financial advice; suggest a conveyancer, solicitor, accountant or broker.
 - Australian English, concise, warm, professional, no hype.
-- Contact details you may share: ${"Sid.bhattal@expaustralia.com.au"} and +61 449 993 933.`;
+- Contact details you may share: ${"sid.bhattal@expaustralia.com.au"} and +61 449 993 933.`;
 
 export const Route = createFileRoute("/api/chat")({
   server: {
