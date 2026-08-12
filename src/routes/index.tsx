@@ -1,24 +1,62 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/site/Nav";
+import { Hero, Marquee } from "@/components/site/Hero";
+import { Calculator, GlobalStats } from "@/components/site/Calculator";
+import {
+  WhyExp,
+  ModelSection,
+  Benefits,
+  TechStack,
+  YourBrand,
+  RentRoll,
+  Luxury,
+  Culture,
+  Testimonials,
+  Contact,
+  Footer,
+} from "@/components/site/Sections";
+import { ChatWidget } from "@/components/site/ChatWidget";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "The Model eXplained | eXp Realty Australia";
+const DESCRIPTION =
+  "Discover a smarter way to build your real estate business. Earn more, scale faster, and create long term income through a modern, agent first model.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <Nav />
+      <main>
+        <Hero />
+        <WhyExp />
+        <ModelSection />
+        <Calculator />
+        <GlobalStats />
+        <Benefits />
+        <TechStack />
+        <YourBrand />
+        <RentRoll />
+        <Luxury />
+        <Culture />
+        <Testimonials />
+        <Contact />
+        <Marquee />
+      </main>
+      <Footer />
+      <ChatWidget />
     </div>
   );
 }
