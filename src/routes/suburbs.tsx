@@ -103,7 +103,9 @@ function SuburbsPage() {
           </Reveal>
           <Reveal delay={120}>
             <LeadForm
+              key={suburb ?? "none"}
               id="suburb-request"
+
               title="Suburb intelligence request"
               subject="Suburb intelligence request"
               tone="ink"
