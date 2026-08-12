@@ -10,6 +10,10 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { SiteHeader } from "@/components/brand/SiteHeader";
+import { SiteFooter } from "@/components/brand/SiteFooter";
+import { ChatWidget } from "@/components/brand/ChatWidget";
+import { Toaster } from "@/components/ui/sonner";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -77,13 +81,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "The Model eXplained | eXp Realty Australia" },
+      { title: "Sid Bhattal | North-Eastern Adelaide Real Estate Agent" },
       {
         name: "description",
         content:
-          "Discover a smarter way to build your real estate business. Earn more, scale faster, and create long term income through a modern, agent first model.",
+          "Sid Bhattal, Real Estate Agent with eXp Realty. North-Eastern Adelaide expertise with South Australia-wide reach.",
       },
-      { name: "author", content: "The Alpha State Of Mind" },
+      { name: "author", content: "Sid Bhattal" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -96,7 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
@@ -127,8 +131,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <SiteHeader />
+      <main>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </main>
+      <SiteFooter />
+      <ChatWidget />
+      <Toaster />
     </QueryClientProvider>
   );
 }
