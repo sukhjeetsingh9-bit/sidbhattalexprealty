@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { LeadForm } from "@/components/brand/LeadForm";
 import {
@@ -10,7 +10,8 @@ import {
   Section,
   SectionTitle,
 } from "@/components/brand/primitives";
-import { DATA_NOTICE, PROPERTYFORME, RESOURCES } from "@/lib/brand";
+import { DATA_NOTICE, OFFER_TOOL, PROPERTYFORME, RESOURCES } from "@/lib/brand";
+
 import interior from "@/assets/interior-1.jpg";
 
 const TITLE = "Property Resources & Guides | Sid Bhattal";
