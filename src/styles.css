@@ -5,21 +5,21 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * eXp Realty — "The Model eXplained" design system.
- * Near-black canvas, cream type, gold accent, deep purple secondary.
- * All colors are oklch tokens. Never hardcode colors in components.
+ * Sid Bhattal — eXp Realty. Premium Australian property editorial system.
+ * Warm ivory canvas, charcoal ink, stone/taupe neutrals, muted bronze accent.
+ * Single typeface: League Spartan. Never hardcode colors or fonts in components.
  */
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 3px);
+  --radius-md: calc(var(--radius) - 1px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-  --font-sans: var(--font-body);
-  --font-display: var(--font-display);
+  --radius-2xl: calc(var(--radius) + 10px);
+  --font-sans: var(--font-brand);
+  --font-display: var(--font-brand);
+  --font-mono: var(--font-brand);
+  --font-serif: var(--font-brand);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -40,122 +40,140 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
-  --color-gold: var(--gold);
-  --color-gold-soft: var(--gold-soft);
-  --color-purple: var(--purple);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-stone: var(--stone);
+  --color-bronze: var(--bronze);
+  --color-bronze-soft: var(--bronze-soft);
 }
 
 :root {
-  --radius: 0.5rem;
-  --font-body: "Roboto", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --radius: 0.25rem;
+  --font-brand: "League Spartan", ui-sans-serif, system-ui, sans-serif;
 
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.928 0.012 91.5);
-  --surface: oklch(0.176 0.004 285);
-  --surface-2: oklch(0.219 0.012 300);
-  --card: oklch(0.176 0.004 285);
-  --card-foreground: oklch(0.928 0.012 91.5);
-  --popover: oklch(0.176 0.004 285);
-  --popover-foreground: oklch(0.928 0.012 91.5);
+  --background: oklch(0.973 0.007 85);
+  --foreground: oklch(0.215 0.006 60);
 
-  --gold: oklch(0.775 0.124 82.5);
-  --gold-soft: oklch(0.93 0.06 92);
-  --purple: oklch(0.335 0.088 305);
+  --ink: oklch(0.185 0.005 60);
+  --ink-foreground: oklch(0.955 0.008 85);
+  --stone: oklch(0.906 0.009 80);
+  --bronze: oklch(0.575 0.072 58);
+  --bronze-soft: oklch(0.78 0.045 65);
 
-  --primary: oklch(0.775 0.124 82.5);
-  --primary-foreground: oklch(0.145 0 0);
-  --secondary: oklch(0.335 0.088 305);
-  --secondary-foreground: oklch(0.928 0.012 91.5);
-  --muted: oklch(0.219 0.012 300);
-  --muted-foreground: oklch(0.72 0.012 91.5);
-  --accent: oklch(0.219 0.012 300);
-  --accent-foreground: oklch(0.928 0.012 91.5);
-  --destructive: oklch(0.62 0.21 25);
-  --destructive-foreground: oklch(0.97 0.01 90);
-  --border: oklch(0.928 0.012 91.5 / 12%);
-  --input: oklch(0.928 0.012 91.5 / 18%);
-  --ring: oklch(0.775 0.124 82.5 / 55%);
+  --card: oklch(0.992 0.004 85);
+  --card-foreground: oklch(0.215 0.006 60);
+  --popover: oklch(0.992 0.004 85);
+  --popover-foreground: oklch(0.215 0.006 60);
 
-  --gradient-gold: linear-gradient(
-    100deg,
-    oklch(0.96 0.05 95) 0%,
-    oklch(0.83 0.13 88) 38%,
-    oklch(0.72 0.13 78) 70%,
-    oklch(0.9 0.08 92) 100%
-  );
-  --gradient-purple-glow: radial-gradient(
-    ellipse at 50% 0%,
-    oklch(0.335 0.088 305 / 55%) 0%,
-    transparent 70%
-  );
-  --shadow-glow: 0 0 60px oklch(0.775 0.124 82.5 / 18%);
-  --shadow-card: 0 20px 50px oklch(0 0 0 / 45%);
-}
+  --primary: oklch(0.215 0.006 60);
+  --primary-foreground: oklch(0.973 0.007 85);
+  --secondary: oklch(0.93 0.008 82);
+  --secondary-foreground: oklch(0.215 0.006 60);
+  --muted: oklch(0.94 0.008 82);
+  --muted-foreground: oklch(0.505 0.013 68);
+  --accent: oklch(0.575 0.072 58);
+  --accent-foreground: oklch(0.98 0.006 85);
+  --destructive: oklch(0.55 0.16 25);
+  --destructive-foreground: oklch(0.98 0.006 85);
+  --border: oklch(0.215 0.006 60 / 14%);
+  --input: oklch(0.215 0.006 60 / 20%);
+  --ring: oklch(0.575 0.072 58 / 45%);
 
-.dark {
-  color-scheme: dark;
+  --sidebar: oklch(0.973 0.007 85);
+  --sidebar-foreground: oklch(0.215 0.006 60);
+  --sidebar-primary: oklch(0.215 0.006 60);
+  --sidebar-primary-foreground: oklch(0.973 0.007 85);
+  --sidebar-accent: oklch(0.94 0.008 82);
+  --sidebar-accent-foreground: oklch(0.215 0.006 60);
+  --sidebar-border: oklch(0.215 0.006 60 / 12%);
+  --sidebar-ring: oklch(0.575 0.072 58 / 45%);
 }
 
 @layer base {
   * {
-    border-color: var(--color-border);
+    @apply border-border outline-ring/50;
   }
 
-  html {
-    scroll-behavior: smooth;
+  html,
+  body {
+    font-family: var(--font-brand);
+  }
+
+  /* League Spartan is the single typeface across every element. */
+  *,
+  *::before,
+  *::after {
+    font-family: inherit;
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-body);
-    -webkit-font-smoothing: antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
   ::selection {
-    background: var(--gold);
-    color: var(--primary-foreground);
+    background: var(--bronze);
+    color: var(--accent-foreground);
   }
-}
-
-@utility text-gold-gradient {
-  background-image: var(--gradient-gold);
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-
-@utility purple-glow {
-  background-image: var(--gradient-purple-glow);
-}
-
-@utility card-surface {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
 }
 
 @utility eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-size: 0.6875rem;
   font-weight: 600;
-  color: var(--gold);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
 }
 
-@utility marquee-track {
-  animation: marquee 38s linear infinite;
+@utility section-ink {
+  background-color: var(--ink);
+  color: var(--ink-foreground);
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
+@utility rule-line {
+  background-image: linear-gradient(
+    to right,
+    color-mix(in oklab, var(--bronze) 60%, transparent),
+    transparent
+  );
+  height: 1px;
+}
+
+/* Scroll reveal — disabled entirely under reduced-motion. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal[data-shown="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
-  to {
-    transform: translateX(-50%);
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }
