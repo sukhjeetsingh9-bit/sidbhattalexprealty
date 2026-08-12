@@ -53,10 +53,22 @@ export type ReaListing = {
 };
 
 /**
- * Current listings for sale. The REA profile currently publishes no active
- * "for sale" listings — leave this empty rather than filling it with examples.
+ * Current listings for sale, exactly as published on realestate.com.au.
+ * Add/remove entries here as campaigns go live or settle.
  */
-export const REA_FOR_SALE: ReaListing[] = [];
+export const REA_FOR_SALE: ReaListing[] = [
+  {
+    id: "204611544",
+    status: "For sale",
+    price: "Best Offers",
+    address: "Lot 21, 1 Monty Road",
+    suburb: "Valley View, SA 5093",
+    propertyType: "Residential land",
+    landSize: "381m² (approx)",
+    image: "/rea/valley-view-lot21.jpg",
+    url: "https://www.realestate.com.au/property-residential+land-sa-valley+view-204611544",
+  },
+];
 
 /** Recently sold, exactly as published on the REA profile. */
 export const REA_SOLD: ReaListing[] = [
