@@ -13,7 +13,7 @@
 export const REA = {
   agentId: "3321760",
   profileUrl: "https://www.realestate.com.au/agent/sid-bhattal-3321760",
-  reviewsUrl: "https://www.realestate.com.au/agent/3321760/reviews",
+  reviewsUrl: "https://www.realestate.com.au/agent/sid-bhattal-3321760",
   appraisalUrl: "https://www.realestate.com.au/appraisal?agentIds=3321760",
   agencyName: "eXp Real Estate Australia - SA (RLA300185)",
   agencyUrl: "https://www.realestate.com.au/agency/exp-real-estate-australia-sa-rla300185-QARHNN",
