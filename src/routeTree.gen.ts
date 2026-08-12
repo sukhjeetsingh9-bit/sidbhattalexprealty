@@ -10,11 +10,59 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BuyRouteImport } from './routes/buy'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as MarketRouteImport } from './routes/market'
+import { Route as PropertiesRouteImport } from './routes/properties'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as SellRouteImport } from './routes/sell'
+import { Route as SuburbsRouteImport } from './routes/suburbs'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuyRoute = BuyRouteImport.update({
+  id: '/buy',
+  path: '/buy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketRoute = MarketRouteImport.update({
+  id: '/market',
+  path: '/market',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PropertiesRoute = PropertiesRouteImport.update({
+  id: '/properties',
+  path: '/properties',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellRoute = SellRouteImport.update({
+  id: '/sell',
+  path: '/sell',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuburbsRoute = SuburbsRouteImport.update({
+  id: '/suburbs',
+  path: '/suburbs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
@@ -25,27 +73,90 @@ const ApiChatRoute = ApiChatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/buy': typeof BuyRoute
+  '/contact': typeof ContactRoute
+  '/market': typeof MarketRoute
+  '/properties': typeof PropertiesRoute
+  '/resources': typeof ResourcesRoute
+  '/sell': typeof SellRoute
+  '/suburbs': typeof SuburbsRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/buy': typeof BuyRoute
+  '/contact': typeof ContactRoute
+  '/market': typeof MarketRoute
+  '/properties': typeof PropertiesRoute
+  '/resources': typeof ResourcesRoute
+  '/sell': typeof SellRoute
+  '/suburbs': typeof SuburbsRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/buy': typeof BuyRoute
+  '/contact': typeof ContactRoute
+  '/market': typeof MarketRoute
+  '/properties': typeof PropertiesRoute
+  '/resources': typeof ResourcesRoute
+  '/sell': typeof SellRoute
+  '/suburbs': typeof SuburbsRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/chat'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/buy'
+    | '/contact'
+    | '/market'
+    | '/properties'
+    | '/resources'
+    | '/sell'
+    | '/suburbs'
+    | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/chat'
-  id: '__root__' | '/' | '/api/chat'
+  to:
+    | '/'
+    | '/about'
+    | '/buy'
+    | '/contact'
+    | '/market'
+    | '/properties'
+    | '/resources'
+    | '/sell'
+    | '/suburbs'
+    | '/api/chat'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/buy'
+    | '/contact'
+    | '/market'
+    | '/properties'
+    | '/resources'
+    | '/sell'
+    | '/suburbs'
+    | '/api/chat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BuyRoute: typeof BuyRoute
+  ContactRoute: typeof ContactRoute
+  MarketRoute: typeof MarketRoute
+  PropertiesRoute: typeof PropertiesRoute
+  ResourcesRoute: typeof ResourcesRoute
+  SellRoute: typeof SellRoute
+  SuburbsRoute: typeof SuburbsRoute
   ApiChatRoute: typeof ApiChatRoute
 }
 
@@ -56,6 +167,62 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buy': {
+      id: '/buy'
+      path: '/buy'
+      fullPath: '/buy'
+      preLoaderRoute: typeof BuyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/market': {
+      id: '/market'
+      path: '/market'
+      fullPath: '/market'
+      preLoaderRoute: typeof MarketRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/properties': {
+      id: '/properties'
+      path: '/properties'
+      fullPath: '/properties'
+      preLoaderRoute: typeof PropertiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sell': {
+      id: '/sell'
+      path: '/sell'
+      fullPath: '/sell'
+      preLoaderRoute: typeof SellRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/suburbs': {
+      id: '/suburbs'
+      path: '/suburbs'
+      fullPath: '/suburbs'
+      preLoaderRoute: typeof SuburbsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
@@ -70,6 +237,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BuyRoute: BuyRoute,
+  ContactRoute: ContactRoute,
+  MarketRoute: MarketRoute,
+  PropertiesRoute: PropertiesRoute,
+  ResourcesRoute: ResourcesRoute,
+  SellRoute: SellRoute,
+  SuburbsRoute: SuburbsRoute,
   ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
