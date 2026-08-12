@@ -96,14 +96,27 @@ function ResourcesPage() {
             <article className="border-t border-current/15 pt-6">
               <p className="eyebrow text-accent">{OFFER_TOOL.kind}</p>
               <h3 className="mt-4 text-2xl font-semibold">{OFFER_TOOL.title}</h3>
+              <p className="eyebrow mt-2 opacity-60">
+                Sid Bhattal | Real Estate Agent | eXp Realty
+              </p>
               <p className="mt-4 leading-relaxed opacity-70">{OFFER_TOOL.body}</p>
               <Link
                 to={OFFER_TOOL.to}
                 className="eyebrow mt-6 inline-flex items-center gap-2 border-b border-current/40 pb-1 transition-colors hover:border-accent hover:text-accent"
               >
-                Open offer form
+                Open Sid&apos;s offer form
                 <span aria-hidden="true">→</span>
               </Link>
+              <p className="mt-6 text-xs leading-relaxed opacity-55">{OFFER_TOOL.externalNote}</p>
+              <a
+                href={OFFER_TOOL.externalHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="eyebrow mt-4 inline-flex items-center gap-2 border-b border-current/25 pb-1 opacity-70 transition-colors hover:border-accent hover:text-accent hover:opacity-100"
+              >
+                {OFFER_TOOL.externalLabel}
+                <span aria-hidden="true">↗</span>
+              </a>
             </article>
           </Reveal>
         </div>
