@@ -109,21 +109,22 @@ export const RESOURCES = [
   },
 ] as const;
 
-/** Verified external PropertyForMe resources (checked live, HTTP 200). */
+/** Sid-branded resource articles hosted on this site. No third-party agent branding. */
 export const PROPERTYFORME = [
   {
     title: "Into Spring 2026",
-    body: "The spring selling season outlook — buyer demand, listing volumes and what it means for timing your campaign.",
+    body: "The spring selling season outlook — buyer demand, listing volumes and how to time your campaign.",
     kind: "Market update",
-    href: "https://www.propertyforme.au/into-spring-2026",
+    to: "/into-spring-2026",
   },
   {
     title: "CGT reform explained",
-    body: "What the proposed capital gains tax changes mean for investors, owner-occupiers and holding decisions.",
+    body: "What capital gains tax and the current reform debate mean for investors, owner-occupiers and holding decisions.",
     kind: "Explainer",
-    href: "https://www.propertyforme.au/news/cgt-reform-explained",
+    to: "/cgt-reform-explained",
   },
 ] as const;
+
 
 /** Sid-branded offer flow hosted on this site — submissions go directly to Sid. */
 export const OFFER_TOOL = {
