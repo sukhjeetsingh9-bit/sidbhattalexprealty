@@ -7,7 +7,6 @@ import {
   Lead,
   Notice,
   NumberedCard,
-  PropertyCard,
   Reveal,
   Section,
   SectionTitle,
