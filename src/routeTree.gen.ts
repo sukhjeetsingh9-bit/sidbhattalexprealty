@@ -12,7 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BuyRouteImport } from './routes/buy'
+import { Route as CgtReformExplainedRouteImport } from './routes/cgt-reform-explained'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as IntoSpring2026RouteImport } from './routes/into-spring-2026'
 import { Route as MarketRouteImport } from './routes/market'
 import { Route as OfferRouteImport } from './routes/offer'
 import { Route as PropertiesRouteImport } from './routes/properties'
@@ -36,9 +38,19 @@ const BuyRoute = BuyRouteImport.update({
   path: '/buy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CgtReformExplainedRoute = CgtReformExplainedRouteImport.update({
+  id: '/cgt-reform-explained',
+  path: '/cgt-reform-explained',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntoSpring2026Route = IntoSpring2026RouteImport.update({
+  id: '/into-spring-2026',
+  path: '/into-spring-2026',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MarketRoute = MarketRouteImport.update({
@@ -81,7 +93,9 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/buy': typeof BuyRoute
+  '/cgt-reform-explained': typeof CgtReformExplainedRoute
   '/contact': typeof ContactRoute
+  '/into-spring-2026': typeof IntoSpring2026Route
   '/market': typeof MarketRoute
   '/offer': typeof OfferRoute
   '/properties': typeof PropertiesRoute
@@ -94,7 +108,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/buy': typeof BuyRoute
+  '/cgt-reform-explained': typeof CgtReformExplainedRoute
   '/contact': typeof ContactRoute
+  '/into-spring-2026': typeof IntoSpring2026Route
   '/market': typeof MarketRoute
   '/offer': typeof OfferRoute
   '/properties': typeof PropertiesRoute
@@ -108,7 +124,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/buy': typeof BuyRoute
+  '/cgt-reform-explained': typeof CgtReformExplainedRoute
   '/contact': typeof ContactRoute
+  '/into-spring-2026': typeof IntoSpring2026Route
   '/market': typeof MarketRoute
   '/offer': typeof OfferRoute
   '/properties': typeof PropertiesRoute
@@ -123,7 +141,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/buy'
+    | '/cgt-reform-explained'
     | '/contact'
+    | '/into-spring-2026'
     | '/market'
     | '/offer'
     | '/properties'
@@ -136,7 +156,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/buy'
+    | '/cgt-reform-explained'
     | '/contact'
+    | '/into-spring-2026'
     | '/market'
     | '/offer'
     | '/properties'
@@ -149,7 +171,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/buy'
+    | '/cgt-reform-explained'
     | '/contact'
+    | '/into-spring-2026'
     | '/market'
     | '/offer'
     | '/properties'
@@ -163,7 +187,9 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BuyRoute: typeof BuyRoute
+  CgtReformExplainedRoute: typeof CgtReformExplainedRoute
   ContactRoute: typeof ContactRoute
+  IntoSpring2026Route: typeof IntoSpring2026Route
   MarketRoute: typeof MarketRoute
   OfferRoute: typeof OfferRoute
   PropertiesRoute: typeof PropertiesRoute
@@ -196,11 +222,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cgt-reform-explained': {
+      id: '/cgt-reform-explained'
+      path: '/cgt-reform-explained'
+      fullPath: '/cgt-reform-explained'
+      preLoaderRoute: typeof CgtReformExplainedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/into-spring-2026': {
+      id: '/into-spring-2026'
+      path: '/into-spring-2026'
+      fullPath: '/into-spring-2026'
+      preLoaderRoute: typeof IntoSpring2026RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/market': {
@@ -259,7 +299,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BuyRoute: BuyRoute,
+  CgtReformExplainedRoute: CgtReformExplainedRoute,
   ContactRoute: ContactRoute,
+  IntoSpring2026Route: IntoSpring2026Route,
   MarketRoute: MarketRoute,
   OfferRoute: OfferRoute,
   PropertiesRoute: PropertiesRoute,
