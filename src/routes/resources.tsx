@@ -63,6 +63,38 @@ function ResourcesPage() {
         <Notice>Download links and publication dates: {DATA_NOTICE}</Notice>
       </Section>
 
+      <Section tone="ink">
+        <Reveal>
+          <Eyebrow>Published resources</Eyebrow>
+          <SectionTitle>Available now.</SectionTitle>
+          <Lead>
+            Current market commentary and tools, published externally on PropertyForMe. Each opens
+            in a new tab.
+          </Lead>
+        </Reveal>
+        <div className="mt-16 grid gap-x-12 gap-y-12 md:grid-cols-3">
+          {PROPERTYFORME.map((r, i) => (
+            <Reveal key={r.href} delay={i * 80}>
+              <article className="border-t border-current/15 pt-6">
+                <p className="eyebrow text-accent">{r.kind}</p>
+                <h3 className="mt-4 text-2xl font-semibold">{r.title}</h3>
+                <p className="mt-4 leading-relaxed opacity-70">{r.body}</p>
+                <a
+                  href={r.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="eyebrow mt-6 inline-flex items-center gap-2 border-b border-current/40 pb-1 transition-colors hover:border-accent hover:text-accent"
+                >
+                  Open resource
+                  <span aria-hidden="true">→</span>
+                </a>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+
       <Section tone="stone">
         <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
           <Reveal>
