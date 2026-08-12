@@ -389,7 +389,7 @@ export function Testimonials() {
           sub="Hear directly from agents who made the move to eXp Realty and how it transformed their businesses and lives."
         />
         <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_320px]">
-          <YouTube id={current.id} title={current.title} />
+          <YouTube id={current?.id ?? TESTIMONIALS[0]!.id} title={current?.title ?? ""} />
           <div className="flex flex-col gap-2">
             {TESTIMONIALS.map((t, i) => (
               <button
