@@ -13,7 +13,8 @@ import {
   SectionTitle,
   StatBlock,
 } from "@/components/brand/primitives";
-import { BRAND, CONTACT, DATA_NOTICE, MARKET_METRICS, SHOWCASE_NOTE, SUBURBS } from "@/lib/brand";
+import { RecentlySoldSection, ReviewsSection } from "@/components/brand/rea";
+import { BRAND, CONTACT, DATA_NOTICE, MARKET_METRICS, SUBURBS } from "@/lib/brand";
 import heroHome from "@/assets/hero-home.jpg";
 import interior from "@/assets/interior-1.jpg";
 import property1 from "@/assets/property-1.jpg";
