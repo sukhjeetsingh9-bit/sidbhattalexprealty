@@ -107,7 +107,7 @@ function SuburbsPage() {
               title="Suburb intelligence request"
               subject="Suburb intelligence request"
               tone="ink"
-              defaults={suburb ? { suburb } : undefined}
+              defaults={suburb ? { suburb } : {}}
               fields={[
                 { name: "suburb", label: "Suburb", required: true },
                 {
