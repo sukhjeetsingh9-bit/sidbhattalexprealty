@@ -12,7 +12,7 @@ import {
   SectionTitle,
   StatBlock,
 } from "@/components/brand/primitives";
-import { RecentlySoldSection, ReviewsSection } from "@/components/brand/rea";
+import { ForSaleSection, RecentlySoldSection, ReviewsSection } from "@/components/brand/rea";
 import { BRAND, CONTACT, DATA_NOTICE, MARKET_METRICS, SUBURBS } from "@/lib/brand";
 import heroHome from "@/assets/hero-home.jpg";
 import interior from "@/assets/interior-1.jpg";
