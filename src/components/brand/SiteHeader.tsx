@@ -76,7 +76,7 @@ export function SiteHeader() {
         <div className="fixed inset-0 z-[60] flex flex-col bg-ink text-ink-foreground lg:hidden">
           <div className="flex items-center justify-between px-6 py-5">
             <span className="text-base font-semibold uppercase tracking-[0.3em]">
-              {BRAND.lastName}
+              {BRAND.mark}
             </span>
             <button
               type="button"
