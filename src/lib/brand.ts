@@ -128,9 +128,14 @@ export const PROPERTYFORME = [
 /** Sid-branded offer flow hosted on this site — submissions go directly to Sid. */
 export const OFFER_TOOL = {
   title: "Submit your property offer",
-  body: "Lodge a written offer directly with Sid Bhattal — terms, conditions and timeline captured properly the first time.",
+  body: "Lodge a written offer directly with Sid Bhattal — terms, conditions and timeline captured properly the first time. Submissions go straight to Sid.",
   kind: "Tool",
   to: "/offer",
+  /** Third-party PropertyForMe offer page. External site — not operated or branded by Sid. */
+  externalHref: "https://www.propertyforme.au/submit-property-offer",
+  externalLabel: "PropertyForMe offer page (external)",
+  externalNote:
+    "PropertyForMe is an external site we don't control, so its page presentation and recipient details are theirs, not Sid's. For an offer handled by Sid Bhattal | Real Estate Agent | eXp Realty, use the form above.",
 } as const;
 
 
