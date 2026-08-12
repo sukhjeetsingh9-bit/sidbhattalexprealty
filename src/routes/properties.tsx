@@ -75,6 +75,10 @@ function PropertiesPage() {
         alt="Contemporary townhouse facade"
       />
 
+      <ForSaleSection />
+
+      <RecentlySoldSection />
+
       <Section>
         <Reveal>
           <Eyebrow>What I list</Eyebrow>
