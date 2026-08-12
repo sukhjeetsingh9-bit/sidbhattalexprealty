@@ -71,7 +71,7 @@ function PropertiesPage() {
       <PageHero
         eyebrow="Properties"
         title="Every property gets a proper presentation."
-        lead="Live listings, upcoming campaigns and recent results will appear here as they are verified."
+        lead="Current listings and recently sold results, taken directly from my verified realestate.com.au agent profile."
         image={property2}
         alt="Contemporary townhouse facade"
       />
