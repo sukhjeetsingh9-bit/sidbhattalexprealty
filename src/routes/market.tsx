@@ -12,6 +12,7 @@ import {
   StatBlock,
 } from "@/components/brand/primitives";
 import { DATA_NOTICE, MARKET_METRICS } from "@/lib/brand";
+import { REA, REA_DISCLAIMER, REA_SNAPSHOT } from "@/lib/rea";
 import suburbAerial from "@/assets/suburb-aerial.jpg";
 
 const TITLE = "Adelaide Market Insights | Sid Bhattal";
