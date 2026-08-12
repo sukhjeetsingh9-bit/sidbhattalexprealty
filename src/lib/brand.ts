@@ -123,13 +123,16 @@ export const PROPERTYFORME = [
     kind: "Explainer",
     href: "https://www.propertyforme.au/news/cgt-reform-explained",
   },
-  {
-    title: "Submit a property offer",
-    body: "Lodge a written offer online with your terms, conditions and timeline captured properly the first time.",
-    kind: "Tool",
-    href: "https://www.propertyforme.au/submit-property-offer",
-  },
 ] as const;
+
+/** Sid-branded offer flow hosted on this site — submissions go directly to Sid. */
+export const OFFER_TOOL = {
+  title: "Submit your property offer",
+  body: "Lodge a written offer directly with Sid Bhattal — terms, conditions and timeline captured properly the first time.",
+  kind: "Tool",
+  to: "/offer",
+} as const;
+
 
 
 /** Presentation examples only — clearly labelled, never presented as real sales. */

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { LeadForm } from "@/components/brand/LeadForm";
 import {
@@ -10,7 +10,8 @@ import {
   Section,
   SectionTitle,
 } from "@/components/brand/primitives";
-import { DATA_NOTICE, PROPERTYFORME, RESOURCES } from "@/lib/brand";
+import { DATA_NOTICE, OFFER_TOOL, PROPERTYFORME, RESOURCES } from "@/lib/brand";
+
 import interior from "@/assets/interior-1.jpg";
 
 const TITLE = "Property Resources & Guides | Sid Bhattal";
@@ -91,8 +92,23 @@ function ResourcesPage() {
               </article>
             </Reveal>
           ))}
+          <Reveal delay={PROPERTYFORME.length * 80}>
+            <article className="border-t border-current/15 pt-6">
+              <p className="eyebrow text-accent">{OFFER_TOOL.kind}</p>
+              <h3 className="mt-4 text-2xl font-semibold">{OFFER_TOOL.title}</h3>
+              <p className="mt-4 leading-relaxed opacity-70">{OFFER_TOOL.body}</p>
+              <Link
+                to={OFFER_TOOL.to}
+                className="eyebrow mt-6 inline-flex items-center gap-2 border-b border-current/40 pb-1 transition-colors hover:border-accent hover:text-accent"
+              >
+                Open offer form
+                <span aria-hidden="true">→</span>
+              </Link>
+            </article>
+          </Reveal>
         </div>
       </Section>
+
 
 
       <Section tone="stone">

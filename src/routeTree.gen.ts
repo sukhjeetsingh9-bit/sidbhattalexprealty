@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as BuyRouteImport } from './routes/buy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as MarketRouteImport } from './routes/market'
+import { Route as OfferRouteImport } from './routes/offer'
 import { Route as PropertiesRouteImport } from './routes/properties'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as SellRouteImport } from './routes/sell'
@@ -43,6 +44,11 @@ const ContactRoute = ContactRouteImport.update({
 const MarketRoute = MarketRouteImport.update({
   id: '/market',
   path: '/market',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfferRoute = OfferRouteImport.update({
+  id: '/offer',
+  path: '/offer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PropertiesRoute = PropertiesRouteImport.update({
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/buy': typeof BuyRoute
   '/contact': typeof ContactRoute
   '/market': typeof MarketRoute
+  '/offer': typeof OfferRoute
   '/properties': typeof PropertiesRoute
   '/resources': typeof ResourcesRoute
   '/sell': typeof SellRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/buy': typeof BuyRoute
   '/contact': typeof ContactRoute
   '/market': typeof MarketRoute
+  '/offer': typeof OfferRoute
   '/properties': typeof PropertiesRoute
   '/resources': typeof ResourcesRoute
   '/sell': typeof SellRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/buy': typeof BuyRoute
   '/contact': typeof ContactRoute
   '/market': typeof MarketRoute
+  '/offer': typeof OfferRoute
   '/properties': typeof PropertiesRoute
   '/resources': typeof ResourcesRoute
   '/sell': typeof SellRoute
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/buy'
     | '/contact'
     | '/market'
+    | '/offer'
     | '/properties'
     | '/resources'
     | '/sell'
@@ -128,6 +138,7 @@ export interface FileRouteTypes {
     | '/buy'
     | '/contact'
     | '/market'
+    | '/offer'
     | '/properties'
     | '/resources'
     | '/sell'
@@ -140,6 +151,7 @@ export interface FileRouteTypes {
     | '/buy'
     | '/contact'
     | '/market'
+    | '/offer'
     | '/properties'
     | '/resources'
     | '/sell'
@@ -153,6 +165,7 @@ export interface RootRouteChildren {
   BuyRoute: typeof BuyRoute
   ContactRoute: typeof ContactRoute
   MarketRoute: typeof MarketRoute
+  OfferRoute: typeof OfferRoute
   PropertiesRoute: typeof PropertiesRoute
   ResourcesRoute: typeof ResourcesRoute
   SellRoute: typeof SellRoute
@@ -195,6 +208,13 @@ declare module '@tanstack/react-router' {
       path: '/market'
       fullPath: '/market'
       preLoaderRoute: typeof MarketRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offer': {
+      id: '/offer'
+      path: '/offer'
+      fullPath: '/offer'
+      preLoaderRoute: typeof OfferRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/properties': {
@@ -241,6 +261,7 @@ const rootRouteChildren: RootRouteChildren = {
   BuyRoute: BuyRoute,
   ContactRoute: ContactRoute,
   MarketRoute: MarketRoute,
+  OfferRoute: OfferRoute,
   PropertiesRoute: PropertiesRoute,
   ResourcesRoute: ResourcesRoute,
   SellRoute: SellRoute,
