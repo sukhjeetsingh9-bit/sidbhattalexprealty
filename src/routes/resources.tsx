@@ -10,7 +10,7 @@ import {
   Section,
   SectionTitle,
 } from "@/components/brand/primitives";
-import { DATA_NOTICE, RESOURCES } from "@/lib/brand";
+import { DATA_NOTICE, PROPERTYFORME, RESOURCES } from "@/lib/brand";
 import interior from "@/assets/interior-1.jpg";
 
 const TITLE = "Property Resources & Guides | Sid Bhattal";
