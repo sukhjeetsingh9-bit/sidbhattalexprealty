@@ -13,6 +13,7 @@ import {
 import { BRAND, CONTACT, SOCIALS } from "@/lib/brand";
 import { REA, REA_RATING, REA_SOLD_TOTAL } from "@/lib/rea";
 import heroHome from "@/assets/hero-home.jpg";
+import suburbAerial from "@/assets/suburb-aerial.jpg";
 
 const TITLE = "About Sid Bhattal | Real Estate Agent, eXp Realty";
 const DESCRIPTION =
@@ -64,12 +65,12 @@ function AboutPage() {
         <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
           <Reveal>
             <img
-              src="/rea/sid-profile.jpg"
-              alt={`${BRAND.fullName} — ${BRAND.jobTitle}, ${BRAND.agency}`}
+              src={suburbAerial}
+              alt="Aerial view of North-Eastern Adelaide suburbs"
               loading="lazy"
-              width={800}
-              height={800}
-              className="aspect-4/5 w-full object-cover object-top"
+              width={1440}
+              height={1080}
+              className="aspect-4/5 w-full object-cover"
             />
           </Reveal>
           <Reveal delay={120}>
@@ -131,7 +132,23 @@ function AboutPage() {
         <Reveal>
           <Eyebrow>Connect</Eyebrow>
           <SectionTitle>Reach me directly.</SectionTitle>
-          <div className="mt-12 flex flex-wrap gap-x-12 gap-y-6 text-lg">
+          <div className="mt-8 inline-flex items-center gap-4 rounded-sm bg-ink px-5 py-3.5 text-ink-foreground shadow-sm">
+            <img
+              src="/rea/sid-profile.jpg"
+              alt={`${BRAND.fullName} — ${BRAND.jobTitle}, ${BRAND.agency}`}
+              loading="lazy"
+              width={56}
+              height={56}
+              className="size-12 shrink-0 rounded-full border border-accent/50 object-cover object-top"
+            />
+            <div className="text-xs leading-snug">
+              <p className="font-semibold uppercase tracking-[0.16em]">{BRAND.fullName}</p>
+              <p className="mt-0.5 opacity-70">
+                {BRAND.jobTitle} · {BRAND.agency} ({REA.licence})
+              </p>
+            </div>
+          </div>
+          <div className="mt-10 flex flex-wrap gap-x-12 gap-y-6 text-lg">
             <a href={`tel:${CONTACT.phoneRaw}`} className="font-semibold hover:text-accent">
               {CONTACT.phoneDisplay}
             </a>

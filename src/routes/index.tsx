@@ -78,33 +78,13 @@ function Home() {
 
       {/* Intro / positioning */}
       <Section>
-        <div className="grid gap-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-24">
+        <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
           <Reveal>
-            <div className="relative overflow-hidden bg-muted">
-              <img
-                src="/rea/sid-profile.jpg"
-                alt={`${BRAND.fullName} — ${BRAND.jobTitle}, ${BRAND.agency}`}
-                loading="lazy"
-                width={900}
-                height={1125}
-                className="aspect-4/5 w-full object-cover object-top"
-              />
-              <div className="border-t border-border bg-card p-6">
-                <p className="eyebrow text-accent">
-                  {BRAND.agency} · {REA.licence}
-                </p>
-                <p className="mt-2 text-2xl font-semibold">{BRAND.fullName}</p>
-                <p className="mt-1 text-sm opacity-70">
-                  {REA_RATING.score.toFixed(1)} ★ from {REA_RATING.count} verified reviews ·{" "}
-                  {REA_SOLD_TOTAL} properties sold (12m)
-                </p>
-              </div>
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
             <Eyebrow>Who I work with</Eyebrow>
             <SectionTitle>Two journeys, handled with the same care.</SectionTitle>
-            <p className="mt-8 text-lg leading-relaxed opacity-75">
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="text-lg leading-relaxed opacity-75">
               I'm {BRAND.fullName}, a {BRAND.jobTitle.toLowerCase()} with {BRAND.agency}. My work
               sits in the north-east of Adelaide — the pockets, streets and school zones that change
               what a home is genuinely worth — while eXp's network lets me act right across{" "}
@@ -171,36 +151,10 @@ function Home() {
       <ForSaleSection />
 
       {/* Recently sold — genuine REA data */}
-      <RecentlySoldSection tone="stone" limit={3} />
+      <RecentlySoldSection tone="stone" limit={6} />
 
       {/* Client reviews — genuine REA data */}
       <ReviewsSection />
-
-
-      {/* Market snapshot */}
-      <Section>
-        <Reveal>
-          <Eyebrow>Market snapshot</Eyebrow>
-          <SectionTitle>Numbers only when they can be sourced.</SectionTitle>
-          <Lead>
-            Key indicators across Greater Adelaide and the North-Eastern suburbs, paired with
-            verified campaign performance from realestate.com.au.
-          </Lead>
-        </Reveal>
-        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {MARKET_METRICS.map((m, i) => (
-            <Reveal key={m.label} delay={i * 100}>
-              <StatBlock label={m.label} value={m.value} detail={m.detail} />
-            </Reveal>
-          ))}
-        </div>
-        <Notice>{MARKET_METRICS_SOURCE}</Notice>
-        <div className="mt-10">
-          <CTA to="/market" variant="outline">
-            Market insights
-          </CTA>
-        </div>
-      </Section>
 
       {/* Suburbs strip */}
       <Section tone="ink">
@@ -230,7 +184,7 @@ function Home() {
         </Reveal>
       </Section>
 
-      {/* Appraisal CTA + form */}
+      {/* Appraisal CTA + form (with small studio portrait badge at the bottom) */}
       <Section tone="stone" id="appraisal">
         <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
           <Reveal>
@@ -240,22 +194,37 @@ function Home() {
               A written appraisal with comparable evidence, a defensible price range and a
               recommended method of sale. No obligation, no pressure.
             </Lead>
-            <div className="mt-10 space-y-2 text-sm opacity-70">
-              <p>
-                <a href={`tel:${CONTACT.phoneRaw}`} className="hover:text-accent">
-                  {CONTACT.phoneDisplay}
-                </a>
-              </p>
-              <p>
-                <a href={`mailto:${CONTACT.email}`} className="hover:text-accent">
-                  {CONTACT.email}
-                </a>
-              </p>
+
+            {/* Small compact agent snapshot card at bottom with studio background */}
+            <div className="mt-8 inline-flex items-center gap-4 rounded-sm bg-ink px-5 py-3.5 text-ink-foreground shadow-sm">
+              <img
+                src="/rea/sid-profile.jpg"
+                alt={`${BRAND.fullName} — ${BRAND.jobTitle}, ${BRAND.agency}`}
+                loading="lazy"
+                width={56}
+                height={56}
+                className="size-12 shrink-0 rounded-full border border-accent/50 object-cover object-top"
+              />
+              <div className="text-xs leading-snug">
+                <p className="font-semibold uppercase tracking-[0.16em]">{BRAND.fullName}</p>
+                <p className="mt-0.5 opacity-70">
+                  {BRAND.jobTitle} · {BRAND.agency} ({REA.licence})
+                </p>
+                <p className="mt-0.5 text-[0.6875rem] text-accent">
+                  <a href={`tel:${CONTACT.phoneRaw}`} className="hover:underline">
+                    {CONTACT.phoneDisplay}
+                  </a>{" "}
+                  ·{" "}
+                  <a href={`mailto:${CONTACT.email}`} className="hover:underline">
+                    {CONTACT.email}
+                  </a>
+                </p>
+              </div>
             </div>
+
             <Notice>
               {REA.sourceLabel} · updated {REA.sourcedOn}. {REA_RATING.score.toFixed(1)} ★ from{" "}
-              {REA_RATING.count} verified reviews · {REA_SOLD_TOTAL} properties sold (last 12
-              months).
+              {REA_RATING.count} verified reviews · {REA_SOLD_TOTAL} properties sold.
             </Notice>
           </Reveal>
           <Reveal delay={120}>
@@ -285,6 +254,38 @@ function Home() {
           </Reveal>
         </div>
       </Section>
+
+      {/* Compact Market Snapshot strip at the bottom with dark contrasting background */}
+      <section className="section-ink border-t border-current/15 px-6 py-10 md:px-10 md:py-12">
+        <div className="mx-auto w-full max-w-6xl">
+          <div className="flex flex-col justify-between gap-4 border-b border-current/15 pb-5 sm:flex-row sm:items-center">
+            <div className="flex items-center gap-3">
+              <span className="eyebrow text-accent">Market snapshot</span>
+              <span className="text-xs opacity-60">
+                · Greater Adelaide &amp; North-Eastern corridor benchmarks
+              </span>
+            </div>
+            <Link
+              to="/market"
+              className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-accent hover:underline"
+            >
+              Full market insights →
+            </Link>
+          </div>
+          <div className="mt-6 grid grid-cols-2 gap-6 lg:grid-cols-4">
+            {MARKET_METRICS.map((m) => (
+              <div key={m.label}>
+                <p className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] opacity-55">
+                  {m.label}
+                </p>
+                <p className="mt-1.5 text-lg font-semibold md:text-xl">{m.value}</p>
+                <p className="mt-0.5 text-xs opacity-55">{m.detail}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-[0.6875rem] opacity-45">{MARKET_METRICS_SOURCE}</p>
+        </div>
+      </section>
     </>
   );
 }

@@ -88,25 +88,6 @@ function MarketPage() {
 
       <Section tone="stone">
         <Reveal>
-          <Eyebrow>Snapshot</Eyebrow>
-          <SectionTitle>Current market snapshot.</SectionTitle>
-          <Lead>
-            Key benchmarks across Greater Adelaide and the North-Eastern suburbs, alongside verified
-            campaign metrics.
-          </Lead>
-        </Reveal>
-        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {MARKET_METRICS.map((m, i) => (
-            <Reveal key={m.label} delay={i * 100}>
-              <StatBlock label={m.label} value={m.value} detail={m.detail} />
-            </Reveal>
-          ))}
-        </div>
-        <Notice>{MARKET_METRICS_SOURCE}</Notice>
-      </Section>
-
-      <Section>
-        <Reveal>
           <Eyebrow>Suburb benchmarks</Eyebrow>
           <SectionTitle>North-Eastern Adelaide house medians.</SectionTitle>
           <Lead>
@@ -184,6 +165,30 @@ function MarketPage() {
           </Reveal>
         </div>
       </Section>
+
+      {/* Compact Market Snapshot strip at the bottom with dark contrasting background */}
+      <section className="section-ink border-t border-current/15 px-6 py-10 md:px-10 md:py-12">
+        <div className="mx-auto w-full max-w-6xl">
+          <div className="flex items-center gap-3 border-b border-current/15 pb-4">
+            <span className="eyebrow text-accent">Market snapshot</span>
+            <span className="text-xs opacity-60">
+              · Greater Adelaide &amp; North-Eastern corridor benchmarks
+            </span>
+          </div>
+          <div className="mt-6 grid grid-cols-2 gap-6 lg:grid-cols-4">
+            {MARKET_METRICS.map((m) => (
+              <div key={m.label}>
+                <p className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] opacity-55">
+                  {m.label}
+                </p>
+                <p className="mt-1.5 text-lg font-semibold md:text-xl">{m.value}</p>
+                <p className="mt-0.5 text-xs opacity-55">{m.detail}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-[0.6875rem] opacity-45">{MARKET_METRICS_SOURCE}</p>
+        </div>
+      </section>
     </>
   );
 }

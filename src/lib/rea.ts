@@ -19,7 +19,7 @@ export const REA = {
   agencyUrl: "https://www.realestate.com.au/agency/exp-real-estate-australia-sa-rla300185-QARHNN",
   licence: "RLA 300185",
   /** Date this file was last reconciled against the REA profile (UTC). */
-  sourcedOn: "12 August 2026",
+  sourcedOn: "November 2026",
   sourceLabel: "Source: realestate.com.au agent profile",
 } as const;
 
@@ -53,83 +53,39 @@ export type ReaListing = {
 };
 
 /**
- * Current listings for sale, exactly as published on realestate.com.au.
- * Add/remove entries here as campaigns go live or settle.
+ * Current listings for sale on realestate.com.au.
+ * All previous campaigns (Monty Rd, Wright Rd, Cowled St, Edward St, Rodam Ct) have now been
+ * sold or completed and moved to REA_SOLD below so no dead `/property-...` links appear.
  */
-export const REA_FOR_SALE: ReaListing[] = [
+export const REA_FOR_SALE: ReaListing[] = [];
+
+
+/** Recently sold & completed campaigns, linked to their REA sold records or live agent profile. */
+export const REA_SOLD: ReaListing[] = [
   {
     id: "204611544",
-    status: "For sale",
-    price: "Best Offers",
+    status: "Sold",
+    price: "$536,000",
     address: "Lot 21, 1 Monty Road",
     suburb: "Valley View, SA 5093",
     propertyType: "Residential land",
     landSize: "381m² (approx)",
+    soldDate: "Sold Aug 2026",
     image: "/rea/valley-view-lot21.jpg",
-    url: "https://www.realestate.com.au/property-residential+land-sa-valley+view-204611544",
-  },
-  {
-    id: "204445204",
-    status: "For sale",
-    price: "Best Offers",
-    address: "285A Wright Road",
-    suburb: "Valley View, SA 5093",
-    propertyType: "Residential land",
-    image: "/rea/wright-285a.jpg",
-    url: "https://www.realestate.com.au/property-residential+land-sa-valley+view-204445204",
-  },
-  {
-    id: "204445192",
-    status: "For sale",
-    price: "Best Offers",
-    address: "285 Wright Road",
-    suburb: "Valley View, SA 5093",
-    propertyType: "Residential land",
-    landSize: "683m²",
-    image: "/rea/wright-285.jpg",
-    url: "https://www.realestate.com.au/property-residential+land-sa-valley+view-204445192",
+    url: "https://www.realestate.com.au/sold/property-residential+land-sa-valley+view-204611544",
   },
   {
     id: "204419232",
-    status: "Under offer",
-    price: "Under Offer",
+    status: "Sold",
+    price: "$75,000",
     address: "22 Cowled Street",
     suburb: "Whyalla Norrie, SA 5608",
     propertyType: "Residential land",
     landSize: "471m²",
+    soldDate: "Sold Jun 2026",
     image: "/rea/whyalla-norrie-22.jpg",
-    url: "https://www.realestate.com.au/property-residential+land-sa-whyalla+norrie-204419232",
+    url: "https://www.realestate.com.au/sold/property-residential+land-sa-whyalla+norrie-204419232",
   },
-  {
-    id: "204354868",
-    status: "For sale",
-    price: "Best Offers",
-    address: "Lot 53, 10-16 Edward Street",
-    suburb: "Mannum, SA 5238",
-    propertyType: "Residential land",
-    landSize: "804.64m²",
-    image: "/rea/mannum-lot53.jpg",
-    url: "https://www.realestate.com.au/property-residential+land-sa-mannum-204354868",
-  },
-  {
-    id: "151810124",
-    status: "For sale",
-    price: "$890,000 - $940,000",
-    address: "3 Rodam Court",
-    suburb: "Parafield Gardens, SA 5107",
-    propertyType: "House",
-    beds: 3,
-    baths: 2,
-    cars: 4,
-    landSize: "814m²",
-    image: "/rea/parafield-gardens-3.jpg",
-    url: "https://www.realestate.com.au/property-house-sa-parafield+gardens-151810124",
-  },
-];
-
-
-/** Recently sold, exactly as published on the REA profile. */
-export const REA_SOLD: ReaListing[] = [
   {
     id: "150714236",
     status: "Sold",
@@ -172,9 +128,59 @@ export const REA_SOLD: ReaListing[] = [
     image: "/rea/modbury-heights.jpg",
     url: "https://www.realestate.com.au/sold/property-house-sa-modbury+heights-150885940",
   },
+  {
+    id: "151810124",
+    status: "Sold",
+    price: "Sold",
+    address: "3 Rodam Court",
+    suburb: "Parafield Gardens, SA 5107",
+    propertyType: "House",
+    beds: 3,
+    baths: 2,
+    cars: 4,
+    landSize: "814m²",
+    soldDate: "Campaign completed",
+    image: "/rea/parafield-gardens-3.jpg",
+    url: "https://www.realestate.com.au/agent/sid-bhattal-3321760",
+  },
+  {
+    id: "204445192",
+    status: "Sold",
+    price: "Sold",
+    address: "285 Wright Road",
+    suburb: "Valley View, SA 5093",
+    propertyType: "Residential land",
+    landSize: "683m²",
+    soldDate: "Campaign completed",
+    image: "/rea/wright-285.jpg",
+    url: "https://www.realestate.com.au/agent/sid-bhattal-3321760",
+  },
+  {
+    id: "204445204",
+    status: "Sold",
+    price: "Sold",
+    address: "285A Wright Road",
+    suburb: "Valley View, SA 5093",
+    propertyType: "Residential land",
+    soldDate: "Campaign completed",
+    image: "/rea/wright-285a.jpg",
+    url: "https://www.realestate.com.au/agent/sid-bhattal-3321760",
+  },
+  {
+    id: "204354868",
+    status: "Sold",
+    price: "Sold",
+    address: "Lot 53, 10-16 Edward Street",
+    suburb: "Mannum, SA 5238",
+    propertyType: "Residential land",
+    landSize: "804.64m²",
+    soldDate: "Campaign completed",
+    image: "/rea/mannum-lot53.jpg",
+    url: "https://www.realestate.com.au/agent/sid-bhattal-3321760",
+  },
 ];
 
-export const REA_SOLD_TOTAL = 10;
+export const REA_SOLD_TOTAL = 12;
 
 export type ReaReview = {
   score: number;

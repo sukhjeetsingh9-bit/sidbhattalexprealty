@@ -52,21 +52,21 @@ function ContactPage() {
           <Reveal>
             <Eyebrow>Direct channels</Eyebrow>
             <SectionTitle>Reach me.</SectionTitle>
-            <div className="mt-8 flex items-center gap-5 border-t border-border pt-6">
+            <div className="mt-8 inline-flex items-center gap-4 rounded-sm bg-ink px-5 py-3.5 text-ink-foreground shadow-sm">
               <img
                 src="/rea/sid-profile.jpg"
                 alt={`${BRAND.fullName} — ${BRAND.jobTitle}, ${BRAND.agency}`}
                 loading="lazy"
-                width={96}
-                height={120}
-                className="h-24 w-20 shrink-0 object-cover object-top"
+                width={56}
+                height={56}
+                className="size-12 shrink-0 rounded-full border border-accent/50 object-cover object-top"
               />
-              <div>
-                <p className="text-lg font-semibold">{BRAND.fullName}</p>
-                <p className="mt-0.5 text-sm opacity-65">
+              <div className="text-xs leading-snug">
+                <p className="font-semibold uppercase tracking-[0.16em]">{BRAND.fullName}</p>
+                <p className="mt-0.5 opacity-70">
                   {BRAND.jobTitle} · {BRAND.agency}
                 </p>
-                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-accent">
+                <p className="mt-0.5 text-[0.6875rem] uppercase tracking-[0.16em] text-accent">
                   North-Eastern Adelaide &amp; SA-wide
                 </p>
               </div>

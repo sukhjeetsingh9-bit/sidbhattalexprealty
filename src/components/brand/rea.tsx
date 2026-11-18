@@ -109,15 +109,25 @@ export function ForSaleSection({ tone = "light" }: { tone?: "light" | "ink" | "s
         </>
       ) : (
         <Reveal delay={100}>
-          <div className="mt-14 border-t border-current/15 pt-8">
+          <div className="mt-12 border-t border-current/15 pt-8">
             <p className="max-w-2xl text-lg leading-relaxed opacity-75">
-              There are currently no publicly advertised properties for sale under Sid Bhattal on
-              realestate.com.au. New campaigns appear here as soon as they go live — and several
-              properties are handled off-market before they are advertised.
+              Previous campaigns on realestate.com.au have now been sold or completed (see verified
+              results below). New public listings appear here as soon as they launch — and several
+              North-Eastern Adelaide properties are matched quietly off-market first.
             </p>
-            <CTA href={REA.profileUrl} variant="outline" className="mt-8">
-              View Sid's live REA profile
-            </CTA>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href={REA.profileUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-sm border border-current px-7 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-foreground transition-all duration-300 hover:bg-foreground hover:text-background"
+              >
+                View Sid&apos;s live REA profile
+              </a>
+              <CTA to="/buy" variant="ghostLight">
+                Join off-market register
+              </CTA>
+            </div>
           </div>
         </Reveal>
       )}
