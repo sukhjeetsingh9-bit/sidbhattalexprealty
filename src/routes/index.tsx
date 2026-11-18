@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import { BrandMarquee } from "@/components/brand/BrandLogo";
 import { LeadForm } from "@/components/brand/LeadForm";
 import {
   CTA,
@@ -72,34 +73,38 @@ function Home() {
         </div>
       </section>
 
+      {/* Animated Brand & Credentials Marquee */}
+      <BrandMarquee />
+
       {/* Intro / positioning */}
       <Section>
-        <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
+        <div className="grid gap-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-24">
           <Reveal>
-            <Eyebrow>Who I work with</Eyebrow>
-            <SectionTitle>Two journeys, handled with the same care.</SectionTitle>
-            <div className="mt-10 flex items-center gap-5 border-t border-border pt-8">
+            <div className="relative overflow-hidden bg-muted">
               <img
                 src="/rea/sid-profile.jpg"
                 alt={`${BRAND.fullName} — ${BRAND.jobTitle}, ${BRAND.agency}`}
                 loading="lazy"
-                width={96}
-                height={96}
-                className="size-20 shrink-0 rounded-sm object-cover"
+                width={900}
+                height={1125}
+                className="aspect-4/5 w-full object-cover object-top"
               />
-              <div>
-                <p className="text-lg font-semibold">{BRAND.fullName}</p>
-                <p className="mt-0.5 text-sm opacity-65">
-                  {BRAND.jobTitle} · {BRAND.agency} · {REA.licence}
+              <div className="border-t border-border bg-card p-6">
+                <p className="eyebrow text-accent">
+                  {BRAND.agency} · {REA.licence}
                 </p>
-                <p className="mt-1.5 text-xs uppercase tracking-[0.18em] text-accent">
-                  {REA_RATING.score.toFixed(1)} ★ ({REA_RATING.count} verified reviews on REA)
+                <p className="mt-2 text-2xl font-semibold">{BRAND.fullName}</p>
+                <p className="mt-1 text-sm opacity-70">
+                  {REA_RATING.score.toFixed(1)} ★ from {REA_RATING.count} verified reviews ·{" "}
+                  {REA_SOLD_TOTAL} properties sold (12m)
                 </p>
               </div>
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <p className="text-lg leading-relaxed opacity-75">
+            <Eyebrow>Who I work with</Eyebrow>
+            <SectionTitle>Two journeys, handled with the same care.</SectionTitle>
+            <p className="mt-8 text-lg leading-relaxed opacity-75">
               I'm {BRAND.fullName}, a {BRAND.jobTitle.toLowerCase()} with {BRAND.agency}. My work
               sits in the north-east of Adelaide — the pockets, streets and school zones that change
               what a home is genuinely worth — while eXp's network lets me act right across{" "}
@@ -200,14 +205,20 @@ function Home() {
       {/* Suburbs strip */}
       <Section tone="ink">
         <Reveal>
-          <Eyebrow>Core coverage</Eyebrow>
+          <Eyebrow>Core coverage &amp; indicative medians</Eyebrow>
           <SectionTitle>North-Eastern Adelaide, street by street.</SectionTitle>
         </Reveal>
         <Reveal delay={120}>
-          <ul className="mt-14 flex flex-wrap gap-x-8 gap-y-4">
+          <ul className="mt-14 grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
             {SUBURBS.slice(0, 12).map((s) => (
-              <li key={s.name} className="text-xl font-semibold opacity-75 md:text-2xl">
-                {s.name}
+              <li
+                key={s.name}
+                className="flex items-baseline justify-between border-t border-current/15 pt-4"
+              >
+                <span className="text-lg font-semibold opacity-85 md:text-xl">{s.name}</span>
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  {s.medianHouse}
+                </span>
               </li>
             ))}
           </ul>

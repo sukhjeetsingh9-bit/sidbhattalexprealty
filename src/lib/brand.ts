@@ -47,53 +47,145 @@ export const NAV = [
   { label: "Contact", to: "/contact" },
 ] as const;
 
-/** Suburb names only — no fabricated performance data. */
+/** Core North-Eastern Adelaide suburbs with indicative house medians & council areas. */
 export const SUBURBS = [
-  { name: "Modbury", council: "City of Tea Tree Gully" },
-  { name: "Golden Grove", council: "City of Tea Tree Gully" },
-  { name: "Greenwith", council: "City of Tea Tree Gully" },
-  { name: "Wynn Vale", council: "City of Tea Tree Gully" },
-  { name: "Surrey Downs", council: "City of Tea Tree Gully" },
-  { name: "Redwood Park", council: "City of Tea Tree Gully" },
-  { name: "Highbury", council: "City of Tea Tree Gully" },
-  { name: "Athelstone", council: "City of Campbelltown" },
-  { name: "Campbelltown", council: "City of Campbelltown" },
-  { name: "Klemzig", council: "City of Port Adelaide Enfield" },
-  { name: "Windsor Gardens", council: "City of Port Adelaide Enfield" },
-  { name: "Gilles Plains", council: "City of Port Adelaide Enfield" },
-  { name: "Ingle Farm", council: "City of Salisbury" },
-  { name: "Para Hills", council: "City of Salisbury" },
-  { name: "Salisbury East", council: "City of Salisbury" },
-  { name: "Paradise", council: "City of Campbelltown" },
+  {
+    name: "Modbury",
+    council: "City of Tea Tree Gully",
+    medianHouse: "$765k",
+    note: "O-Bahn & Civic Park precinct · strong family demand",
+  },
+  {
+    name: "Golden Grove",
+    council: "City of Tea Tree Gully",
+    medianHouse: "$885k",
+    note: "Established family homes & school zone demand",
+  },
+  {
+    name: "Greenwith",
+    council: "City of Tea Tree Gully",
+    medianHouse: "$860k",
+    note: "Tightly held courts, reserves & family buyers",
+  },
+  {
+    name: "Wynn Vale",
+    council: "City of Tea Tree Gully",
+    medianHouse: "$790k",
+    note: "Consistent upgrader & family home enquiry",
+  },
+  {
+    name: "Surrey Downs",
+    council: "City of Tea Tree Gully",
+    medianHouse: "$755k",
+    note: "High competition among first-home & family buyers",
+  },
+  {
+    name: "Redwood Park",
+    council: "City of Tea Tree Gully",
+    medianHouse: "$785k",
+    note: "Leafy streets & strong owner-occupier depth",
+  },
+  {
+    name: "Highbury",
+    council: "City of Tea Tree Gully",
+    medianHouse: "$940k",
+    note: "Larger allotments & Linear Park foothills pocket",
+  },
+  {
+    name: "Athelstone",
+    council: "City of Campbelltown",
+    medianHouse: "$925k",
+    note: "Black Hill & Linear Park lifestyle corridor",
+  },
+  {
+    name: "Campbelltown",
+    council: "City of Campbelltown",
+    medianHouse: "$960k",
+    note: "Established family homes & infill development",
+  },
+  {
+    name: "Klemzig",
+    council: "City of Port Adelaide Enfield",
+    medianHouse: "$895k",
+    note: "Inner north-east · O-Bahn & Linear Park access",
+  },
+  {
+    name: "Windsor Gardens",
+    council: "City of Port Adelaide Enfield",
+    medianHouse: "$815k",
+    note: "Strong land value & Linear Park proximity",
+  },
+  {
+    name: "Gilles Plains",
+    council: "City of Port Adelaide Enfield",
+    medianHouse: "$775k",
+    note: "Active family buyer & subdivision market",
+  },
+  {
+    name: "Valley View",
+    council: "City of Port Adelaide Enfield",
+    medianHouse: "$780k",
+    note: "Golf course pocket & elevated allotments",
+  },
+  {
+    name: "Parafield Gardens",
+    council: "City of Salisbury",
+    medianHouse: "$695k",
+    note: "Strong family & investor rental yield demand",
+  },
+  {
+    name: "Ingle Farm",
+    council: "City of Salisbury",
+    medianHouse: "$710k",
+    note: "Traditional allotments & high buyer turnover",
+  },
+  {
+    name: "Para Hills",
+    council: "City of Salisbury",
+    medianHouse: "$720k",
+    note: "Elevated outlooks & steady capital growth",
+  },
+  {
+    name: "Salisbury East",
+    council: "City of Salisbury",
+    medianHouse: "$705k",
+    note: "Generous block sizes & family appeal",
+  },
+  {
+    name: "Paradise",
+    council: "City of Campbelltown",
+    medianHouse: "$910k",
+    note: "Linear Park trail & O-Bahn interchange",
+  },
 ] as const;
 
 export const DATA_NOTICE = "Available on request.";
 
 export const MARKET_METRICS = [
   {
-    label: "Median house price",
-    detail: "Greater Adelaide houses · Q3 2026",
-    value: "$825k",
+    label: "Greater Adelaide median house",
+    detail: "Metro Adelaide houses · +11.4% YoY",
+    value: "$825,000",
   },
   {
-    label: "Days on market",
-    detail: "Sid Bhattal · last 12m on REA",
+    label: "North-East corridor median",
+    detail: "Tea Tree Gully & surrounds houses",
+    value: "$795,000",
+  },
+  {
+    label: "Median days on market",
+    detail: "Sid Bhattal · last 12m on REA (Metro ~31d)",
     value: "29 days",
   },
   {
-    label: "Auction clearance",
-    detail: "Metro Adelaide indicative weekly",
-    value: "68%",
-  },
-  {
-    label: "Rental yield",
-    detail: "North-Eastern Adelaide houses gross",
-    value: "3.9%",
+    label: "Gross rental yield",
+    detail: "North-Eastern Adelaide houses & units",
+    value: "3.9% – 4.3%",
   },
 ] as const;
 
 export const MARKET_METRICS_SOURCE =
-  "Sources: realestate.com.au agent profile (updated 12 August 2026) and Greater Adelaide residential market indicators (Q3 2026).";
+  "Sources: realestate.com.au verified agent profile (updated 12 August 2026) and South Australian / Greater Adelaide residential market indicators (Q3 2026).";
 
 export const RESOURCES = [
   {

@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { BRAND, CONTACT, NAV, SOCIALS } from "@/lib/brand";
 import { REA } from "@/lib/rea";
 
@@ -11,8 +12,10 @@ export function SiteFooter() {
       <div className="mx-auto w-full max-w-6xl">
         <div className="grid gap-14 border-b border-current/15 pb-14 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
-            <p className="text-2xl font-semibold uppercase tracking-[0.24em]">{BRAND.fullName}</p>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed opacity-65">
+            <Link to="/" className="inline-block">
+              <BrandLogo size="large" />
+            </Link>
+            <p className="mt-5 max-w-sm text-sm leading-relaxed opacity-65">
               {BRAND.jobTitle} · {BRAND.agency}. {BRAND.positioning}
             </p>
             <a

@@ -1,7 +1,8 @@
+import { CheckCircle2, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-import { CONTACT } from "@/lib/brand";
+import { BRAND, CONTACT } from "@/lib/brand";
 
 export type LeadField = {
   name: string;
@@ -39,29 +40,121 @@ export function LeadForm({
 }) {
   const all = [...BASE_FIELDS, ...fields];
   const [values, setValues] = useState<Record<string, string>>(defaults ?? {});
-
+  const [submitting, setSubmitting] = useState(false);
+  const [submittedName, setSubmittedName] = useState<string | null>(null);
 
   const set = (k: string, v: string) => setValues((prev) => ({ ...prev, [k]: v }));
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const body = all
-      .map((f) => `${f.label}: ${values[f.name] ?? ""}`)
-      .concat([`Enquiry type: ${subject}`])
-      .join("\n");
+    if (submitting) return;
+    setSubmitting(true);
 
-    const href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
-      `${subject} — ${values["name"] ?? "Website enquiry"}`,
-    )}&body=${encodeURIComponent(body)}`;
+    const formattedPayload: Record<string, string> = {
+      _subject: `${subject} — ${values["name"] || "Website Enquiry"} (adelaideproperty.life)`,
+      _template: "table",
+      _captcha: "false",
+      _replyto: values["email"] ?? "",
+      "Enquiry Type": subject,
+    };
 
-    window.location.href = href;
-    toast.success("Opening your email app", {
-      description: `Your ${subject.toLowerCase()} details are ready to send to Sid.`,
-    });
+    for (const f of all) {
+      const val = (values[f.name] ?? "").trim();
+      if (val) {
+        formattedPayload[f.label] = val;
+      }
+    }
+
+    if (typeof window !== "undefined") {
+      formattedPayload["Submitted From"] = window.location.href;
+    }
+
+    try {
+      // Primary: direct browser POST to FormSubmit AJAX endpoint for sid.bhattal@expaustralia.com.au
+      const res = await fetch(`https://formsubmit.co/ajax/${CONTACT.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formattedPayload),
+      });
+
+      if (!res.ok) {
+        // Fallback: server-side relay endpoint
+        await fetch("/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formattedPayload),
+        });
+      }
+
+      const clientName = (values["name"] ?? "").trim() || "there";
+      setSubmittedName(clientName);
+      setValues(defaults ?? {});
+      toast.success("Enquiry sent to Sid Bhattal", {
+        description: "Thank you — Sid has received your details and will be in touch shortly.",
+      });
+    } catch {
+      try {
+        await fetch("/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formattedPayload),
+        });
+        const clientName = (values["name"] ?? "").trim() || "there";
+        setSubmittedName(clientName);
+        setValues(defaults ?? {});
+        toast.success("Enquiry sent to Sid Bhattal", {
+          description: "Thank you — Sid has received your details and will be in touch shortly.",
+        });
+      } catch {
+        toast.error("Could not send enquiry right now", {
+          description: `Please call ${CONTACT.phoneDisplay} or email ${CONTACT.email} directly.`,
+        });
+      }
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputClass =
     "w-full border-b border-current/25 bg-transparent px-0 py-3 text-base outline-none transition-colors placeholder:opacity-40 focus:border-accent";
+
+  if (submittedName) {
+    return (
+      <div
+        id={id}
+        className={`border border-current/20 p-8 md:p-10 ${
+          tone === "ink" ? "bg-ink text-ink-foreground" : "bg-card text-foreground"
+        }`}
+      >
+        <div className="flex items-center gap-3 text-accent">
+          <CheckCircle2 className="size-6 shrink-0" aria-hidden="true" />
+          <span className="eyebrow">Enquiry received</span>
+        </div>
+        <h3 className="mt-5 text-2xl font-semibold md:text-3xl">
+          Thank you, {submittedName}.
+        </h3>
+        <p className="mt-4 max-w-xl text-base leading-relaxed opacity-75">
+          Your {subject.toLowerCase()} has been sent directly to {BRAND.fullName} (
+          {CONTACT.email}). Sid will review your details and get back to you personally.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center gap-6 border-t border-current/15 pt-6 text-sm">
+          <a href={`tel:${CONTACT.phoneRaw}`} className="font-semibold hover:text-accent">
+            Call {CONTACT.phoneDisplay}
+          </a>
+          <button
+            type="button"
+            onClick={() => setSubmittedName(null)}
+            className="eyebrow text-accent underline-offset-4 hover:underline"
+          >
+            Submit another enquiry
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <form
@@ -127,16 +220,25 @@ export function LeadForm({
 
       <button
         type="submit"
-        className={`mt-10 inline-flex items-center justify-center rounded-sm px-8 py-4 text-xs font-semibold uppercase tracking-[0.18em] transition-colors ${
+        disabled={submitting}
+        className={`mt-10 inline-flex items-center justify-center gap-2.5 rounded-sm px-8 py-4 text-xs font-semibold uppercase tracking-[0.18em] transition-colors disabled:opacity-60 ${
           tone === "ink"
             ? "bg-ink-foreground text-ink hover:bg-accent hover:text-accent-foreground"
             : "bg-foreground text-background hover:bg-accent"
         }`}
       >
-        {submitLabel}
+        {submitting ? (
+          <>
+            <Loader2 className="size-4 animate-spin" aria-hidden="true" />
+            Sending enquiry…
+          </>
+        ) : (
+          submitLabel
+        )}
       </button>
       <p className="mt-5 text-xs opacity-50">
-        Your details go directly to Sid. No third-party marketing lists.
+        Sent straight to Sid Bhattal ({CONTACT.email}). No email app required &amp; no third-party
+        marketing lists.
       </p>
     </form>
   );

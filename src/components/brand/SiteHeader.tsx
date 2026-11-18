@@ -2,7 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { BRAND, CONTACT, NAV } from "@/lib/brand";
+import { BrandLogo } from "@/components/brand/BrandLogo";
+import { CONTACT, NAV } from "@/lib/brand";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -31,11 +32,9 @@ export function SiteHeader() {
             : "text-ink-foreground"
         }`}
       >
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5 md:px-10">
-          <Link to="/" className="flex items-baseline" onClick={() => setOpen(false)}>
-            <span className="text-base font-semibold uppercase tracking-[0.3em]">
-              {BRAND.mark}
-            </span>
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+          <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
+            <BrandLogo />
           </Link>
 
           <nav className="hidden items-center gap-7 lg:flex">
@@ -74,10 +73,8 @@ export function SiteHeader() {
 
       {open ? (
         <div className="fixed inset-0 z-[60] flex flex-col bg-ink text-ink-foreground lg:hidden">
-          <div className="flex items-center justify-between px-6 py-5">
-            <span className="text-base font-semibold uppercase tracking-[0.3em]">
-              {BRAND.mark}
-            </span>
+          <div className="flex items-center justify-between px-6 py-4">
+            <BrandLogo />
             <button
               type="button"
               aria-label="Close menu"

@@ -11,7 +11,7 @@ import {
   SectionTitle,
   StatBlock,
 } from "@/components/brand/primitives";
-import { MARKET_METRICS, MARKET_METRICS_SOURCE } from "@/lib/brand";
+import { MARKET_METRICS, MARKET_METRICS_SOURCE, SUBURBS } from "@/lib/brand";
 import { REA, REA_DISCLAIMER, REA_SNAPSHOT } from "@/lib/rea";
 import suburbAerial from "@/assets/suburb-aerial.jpg";
 
@@ -103,6 +103,38 @@ function MarketPage() {
           ))}
         </div>
         <Notice>{MARKET_METRICS_SOURCE}</Notice>
+      </Section>
+
+      <Section>
+        <Reveal>
+          <Eyebrow>Suburb benchmarks</Eyebrow>
+          <SectionTitle>North-Eastern Adelaide house medians.</SectionTitle>
+          <Lead>
+            Indicative suburb-level house medians across Tea Tree Gully, Campbelltown, Port Adelaide
+            Enfield and Salisbury councils. Street position, allotment size and condition shift
+            individual values significantly.
+          </Lead>
+        </Reveal>
+        <div className="mt-16 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {SUBURBS.map((s, i) => (
+            <Reveal key={s.name} delay={(i % 6) * 60}>
+              <div className="border-t border-border pt-5">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="text-xl font-semibold">{s.name}</h3>
+                  <span className="text-lg font-semibold text-accent">{s.medianHouse}</span>
+                </div>
+                <p className="mt-1 text-[0.6875rem] uppercase tracking-[0.16em] opacity-50">
+                  {s.council}
+                </p>
+                <p className="mt-2.5 text-sm leading-relaxed opacity-70">{s.note}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Notice>
+          Indicative 2026 house price benchmarks for client guidance. Request a property-specific
+          appraisal below for recent comparable sales on your street.
+        </Notice>
       </Section>
 
       <Section tone="ink">

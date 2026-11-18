@@ -52,7 +52,26 @@ function ContactPage() {
           <Reveal>
             <Eyebrow>Direct channels</Eyebrow>
             <SectionTitle>Reach me.</SectionTitle>
-            <ul className="mt-12 space-y-8">
+            <div className="mt-8 flex items-center gap-5 border-t border-border pt-6">
+              <img
+                src="/rea/sid-profile.jpg"
+                alt={`${BRAND.fullName} — ${BRAND.jobTitle}, ${BRAND.agency}`}
+                loading="lazy"
+                width={96}
+                height={120}
+                className="h-24 w-20 shrink-0 object-cover object-top"
+              />
+              <div>
+                <p className="text-lg font-semibold">{BRAND.fullName}</p>
+                <p className="mt-0.5 text-sm opacity-65">
+                  {BRAND.jobTitle} · {BRAND.agency}
+                </p>
+                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-accent">
+                  North-Eastern Adelaide &amp; SA-wide
+                </p>
+              </div>
+            </div>
+            <ul className="mt-8 space-y-8">
               {channels.map((c) => (
                 <li key={c.label} className="border-t border-border pt-6">
                   <p className="eyebrow flex items-center gap-3 opacity-55">
