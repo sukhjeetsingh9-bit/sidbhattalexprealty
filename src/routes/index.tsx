@@ -13,7 +13,12 @@ import {
   SectionTitle,
   StatBlock,
 } from "@/components/brand/primitives";
-import { ForSaleSection, RecentlySoldSection, ReviewsSection } from "@/components/brand/rea";
+import {
+  CampaignShowcaseSection,
+  ForSaleSection,
+  RecentlySoldSection,
+  ReviewsSection,
+} from "@/components/brand/rea";
 import { BRAND, CONTACT, MARKET_METRICS, MARKET_METRICS_SOURCE, SUBURBS } from "@/lib/brand";
 import { REA, REA_RATING, REA_SOLD_TOTAL } from "@/lib/rea";
 import heroHome from "@/assets/hero-home.jpg";
@@ -152,6 +157,9 @@ function Home() {
 
       {/* Recently sold — genuine REA data */}
       <RecentlySoldSection tone="stone" limit={6} />
+
+      {/* 3 Rex Reach Social Media Campaign Boards */}
+      <CampaignShowcaseSection tone="ink" />
 
       {/* Client reviews — genuine REA data */}
       <ReviewsSection />

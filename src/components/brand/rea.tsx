@@ -1,5 +1,6 @@
-import { CTA, Eyebrow, Notice, Reveal, Section, SectionTitle } from "@/components/brand/primitives";
+import { CTA, Eyebrow, Lead, Notice, Reveal, Section, SectionTitle } from "@/components/brand/primitives";
 import {
+  CAMPAIGN_FLYERS,
   REA,
   REA_DISCLAIMER,
   REA_FOR_SALE,
@@ -43,10 +44,16 @@ export function ListingCard({ listing }: { listing: ReaListing }) {
     listing.cars != null ? `${listing.cars} car` : null,
     listing.landSize ?? null,
   ].filter(Boolean) as string[];
+  const isExternal = listing.url.startsWith("http");
 
   return (
     <article className="group">
-      <a href={listing.url} target="_blank" rel="noreferrer" className="block">
+      <a
+        href={listing.url}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noreferrer" : undefined}
+        className="block"
+      >
         <div className="relative overflow-hidden bg-muted">
           {listing.image ? (
             <img
@@ -77,7 +84,7 @@ export function ListingCard({ listing }: { listing: ReaListing }) {
             </p>
           ) : null}
           <span className="mt-5 inline-block border-b border-current/40 pb-1 text-[0.625rem] font-semibold uppercase tracking-[0.2em] opacity-70 transition-opacity group-hover:opacity-100">
-            View on realestate.com.au
+            {isExternal ? "View on realestate.com.au" : "Enquire directly with Sid"}
           </span>
         </div>
       </a>
@@ -244,6 +251,57 @@ export function ReviewsSection({ tone = "light" }: { tone?: "light" | "ink" | "s
         {REA.sourceLabel} · updated {REA.sourcedOn}. Reviews are collected and verified by
         realestate.com.au, not by this website.
       </Notice>
+    </Section>
+  );
+}
+
+/* ---------- Rex Reach Campaign Showcase ---------- */
+
+export function CampaignShowcaseSection({
+  tone = "ink",
+}: {
+  tone?: "light" | "ink" | "stone";
+}) {
+  return (
+    <Section tone={tone} id="campaign-results">
+      <Reveal>
+        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div>
+            <Eyebrow>Campaign track record</Eyebrow>
+            <SectionTitle>Sold with confidence — on-market &amp; off-market.</SectionTitle>
+            <Lead>
+              Recent residential home sales ($565k to $1.06m), land &amp; subdivision results, and
+              off-market opportunities across Adelaide and South Australia.
+            </Lead>
+          </div>
+          <CTA to="/contact" variant={tone === "ink" ? "ghostLight" : "outline"} className="shrink-0">
+            Enquire about off-market &amp; land
+          </CTA>
+        </div>
+      </Reveal>
+
+      <div className="mt-14 grid gap-8 md:grid-cols-3">
+        {CAMPAIGN_FLYERS.map((c, i) => (
+          <Reveal key={c.id} delay={i * 100}>
+            <article className="group overflow-hidden border border-current/15 bg-black/20">
+              <div className="overflow-hidden">
+                <img
+                  src={c.image}
+                  alt={`${c.title} — ${c.subtitle}`}
+                  loading="lazy"
+                  width={900}
+                  height={940}
+                  className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="p-5">
+                <p className="text-base font-semibold">{c.title}</p>
+                <p className="mt-1 text-xs leading-relaxed opacity-65">{c.subtitle}</p>
+              </div>
+            </article>
+          </Reveal>
+        ))}
+      </div>
     </Section>
   );
 }
