@@ -238,6 +238,17 @@
   animation: brand-roof-draw 5s ease-in-out infinite;
 }
 
+#lovable-badge,
+aside[aria-label="Edit with Lovable"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
