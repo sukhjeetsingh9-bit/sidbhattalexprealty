@@ -57,9 +57,9 @@ export type ReaListing = {
  */
 export const REA_FOR_SALE: ReaListing[] = [
   {
-    id: "antonio-22",
+    id: "152508688",
     status: "For sale",
-    price: "Contact Agent",
+    price: "$780,000 - $799,000",
     address: "22 Antonio Street",
     suburb: "Huntfield Heights, SA 5163",
     propertyType: "House",
@@ -67,17 +67,20 @@ export const REA_FOR_SALE: ReaListing[] = [
     baths: 2,
     cars: 1,
     landSize: "490m²",
-    image: "/site/luxury-home-1.jpg",
-    url: "/contact",
+    image: "/rea/antonio-22.jpg",
+    url: "https://www.realestate.com.au/property-house-sa-huntfield+heights-152508688",
   },
   {
     id: "cashel-1-22",
     status: "For sale",
-    price: "Contact Agent",
-    address: "1/22 Cashel Street",
+    price: "Off-Market · Contact Sid",
+    address: "Unit 1/22 Cashel Street",
     suburb: "St Marys, SA 5042",
-    propertyType: "Unit / Townhouse",
-    image: "/site/luxury-home-2.jpg",
+    propertyType: "Unit",
+    beds: 2,
+    baths: 1,
+    cars: 1,
+    image: "/rea/cashel-1-22.jpg",
     url: "/contact",
   },
 ];
