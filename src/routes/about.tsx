@@ -10,9 +10,9 @@ import {
   Section,
   SectionTitle,
 } from "@/components/brand/primitives";
-import { BRAND, CONTACT, DATA_NOTICE, SOCIALS } from "@/lib/brand";
+import { BRAND, CONTACT, SOCIALS } from "@/lib/brand";
+import { REA, REA_RATING, REA_SOLD_TOTAL } from "@/lib/rea";
 import heroHome from "@/assets/hero-home.jpg";
-import suburbAerial from "@/assets/suburb-aerial.jpg";
 
 const TITLE = "About Sid Bhattal | Real Estate Agent, eXp Realty";
 const DESCRIPTION =
@@ -64,12 +64,12 @@ function AboutPage() {
         <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
           <Reveal>
             <img
-              src={suburbAerial}
-              alt="Aerial view of North-Eastern Adelaide suburbs"
+              src="/rea/sid-profile.jpg"
+              alt={`${BRAND.fullName} — ${BRAND.jobTitle}, ${BRAND.agency}`}
               loading="lazy"
-              width={1440}
-              height={1080}
-              className="aspect-4/5 w-full object-cover"
+              width={800}
+              height={800}
+              className="aspect-4/5 w-full object-cover object-top"
             />
           </Reveal>
           <Reveal delay={120}>
@@ -115,11 +115,14 @@ function AboutPage() {
             </div>
             <div className="border-t border-current/15 pt-6">
               <p className="eyebrow opacity-55">Awards &amp; results</p>
-              <p className="mt-4 text-xl font-semibold">{DATA_NOTICE}</p>
+              <p className="mt-4 text-xl font-semibold">
+                {REA_RATING.score.toFixed(1)} ★ ({REA_RATING.count} reviews) · {REA_SOLD_TOTAL} sold
+                (12m)
+              </p>
             </div>
           </div>
           <Notice>
-            Licence, RLA and statutory registration details will be published here once verified.
+            {REA.agencyName} · {REA.licence} · {REA.sourceLabel} (updated {REA.sourcedOn}).
           </Notice>
         </Reveal>
       </Section>

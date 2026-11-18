@@ -13,7 +13,8 @@ import {
   StatBlock,
 } from "@/components/brand/primitives";
 import { ForSaleSection, RecentlySoldSection, ReviewsSection } from "@/components/brand/rea";
-import { BRAND, CONTACT, DATA_NOTICE, MARKET_METRICS, SUBURBS } from "@/lib/brand";
+import { BRAND, CONTACT, MARKET_METRICS, MARKET_METRICS_SOURCE, SUBURBS } from "@/lib/brand";
+import { REA, REA_RATING, REA_SOLD_TOTAL } from "@/lib/rea";
 import heroHome from "@/assets/hero-home.jpg";
 import interior from "@/assets/interior-1.jpg";
 import property1 from "@/assets/property-1.jpg";
@@ -77,6 +78,25 @@ function Home() {
           <Reveal>
             <Eyebrow>Who I work with</Eyebrow>
             <SectionTitle>Two journeys, handled with the same care.</SectionTitle>
+            <div className="mt-10 flex items-center gap-5 border-t border-border pt-8">
+              <img
+                src="/rea/sid-profile.jpg"
+                alt={`${BRAND.fullName} — ${BRAND.jobTitle}, ${BRAND.agency}`}
+                loading="lazy"
+                width={96}
+                height={96}
+                className="size-20 shrink-0 rounded-sm object-cover"
+              />
+              <div>
+                <p className="text-lg font-semibold">{BRAND.fullName}</p>
+                <p className="mt-0.5 text-sm opacity-65">
+                  {BRAND.jobTitle} · {BRAND.agency} · {REA.licence}
+                </p>
+                <p className="mt-1.5 text-xs uppercase tracking-[0.18em] text-accent">
+                  {REA_RATING.score.toFixed(1)} ★ ({REA_RATING.count} verified reviews on REA)
+                </p>
+              </div>
+            </div>
           </Reveal>
           <Reveal delay={120}>
             <p className="text-lg leading-relaxed opacity-75">
@@ -158,8 +178,8 @@ function Home() {
           <Eyebrow>Market snapshot</Eyebrow>
           <SectionTitle>Numbers only when they can be sourced.</SectionTitle>
           <Lead>
-            Every figure published here will carry its source and date. Until those feeds are
-            verified, placeholders stay in place rather than guesses.
+            Key indicators across Greater Adelaide and the North-Eastern suburbs, paired with
+            verified campaign performance from realestate.com.au.
           </Lead>
         </Reveal>
         <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -169,7 +189,8 @@ function Home() {
             </Reveal>
           ))}
         </div>
-        <div className="mt-14">
+        <Notice>{MARKET_METRICS_SOURCE}</Notice>
+        <div className="mt-10">
           <CTA to="/market" variant="outline">
             Market insights
           </CTA>
@@ -220,7 +241,11 @@ function Home() {
                 </a>
               </p>
             </div>
-            <Notice>Market performance claims and testimonials: {DATA_NOTICE}</Notice>
+            <Notice>
+              {REA.sourceLabel} · updated {REA.sourcedOn}. {REA_RATING.score.toFixed(1)} ★ from{" "}
+              {REA_RATING.count} verified reviews · {REA_SOLD_TOTAL} properties sold (last 12
+              months).
+            </Notice>
           </Reveal>
           <Reveal delay={120}>
             <LeadForm

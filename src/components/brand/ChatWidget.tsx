@@ -39,13 +39,13 @@ export function ChatWidget() {
         type="button"
         aria-label={open ? "Close assistant" : "Ask a property question"}
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-5 right-5 z-[70] inline-flex size-14 items-center justify-center rounded-full bg-ink text-ink-foreground shadow-lg transition-transform hover:scale-105"
+        className="fixed bottom-12 right-5 z-[70] inline-flex size-14 items-center justify-center rounded-full bg-ink text-ink-foreground shadow-lg transition-transform hover:scale-105"
       >
         {open ? <X className="size-5" /> : <MessageCircle className="size-5" />}
       </button>
 
       {open ? (
-        <div className="fixed bottom-24 right-5 z-[70] flex h-[70vh] max-h-[560px] w-[calc(100vw-2.5rem)] max-w-sm flex-col overflow-hidden border border-border bg-card shadow-2xl">
+        <div className="fixed bottom-28 right-5 z-[70] flex h-[70vh] max-h-[560px] w-[calc(100vw-2.5rem)] max-w-sm flex-col overflow-hidden border border-border bg-card shadow-2xl">
           <div className="border-b border-border p-4">
             <p className="text-sm font-semibold uppercase tracking-[0.18em]">Property questions</p>
             <p className="mt-1 text-[0.6875rem] uppercase tracking-[0.16em] opacity-50">

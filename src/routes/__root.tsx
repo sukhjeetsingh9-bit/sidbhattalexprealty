@@ -15,7 +15,42 @@ import { SiteHeader } from "@/components/brand/SiteHeader";
 import { SiteFooter } from "@/components/brand/SiteFooter";
 import { ChatWidget } from "@/components/brand/ChatWidget";
 import { Toaster } from "@/components/ui/sonner";
+import { BRAND, CONTACT, SOCIALS, SUBURBS } from "@/lib/brand";
+import { REA, REA_RATING } from "@/lib/rea";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+
+const SITE_URL = "https://adelaideproperty.life";
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
+const REAL_ESTATE_AGENT_LD_JSON = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: `${BRAND.fullName} | ${BRAND.agency}`,
+  description:
+    "Sid Bhattal, Real Estate Agent with eXp Realty (RLA 300185). North-Eastern Adelaide expertise with South Australia-wide reach.",
+  url: SITE_URL,
+  image: `${SITE_URL}/rea/sid-profile.jpg`,
+  telephone: CONTACT.phoneRaw,
+  email: CONTACT.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Adelaide",
+    addressRegion: "SA",
+    addressCountry: "AU",
+  },
+  areaServed: SUBURBS.map((s) => ({
+    "@type": "Place",
+    name: `${s.name}, South Australia`,
+  })),
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: REA_RATING.score.toFixed(1),
+    reviewCount: String(REA_RATING.count),
+    bestRating: "5",
+    worstRating: "1",
+  },
+  sameAs: [REA.profileUrl, ...SOCIALS.map((s) => s.href)],
+});
 
 function NotFoundComponent() {
   return (
@@ -90,13 +125,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "author", content: "Sid Bhattal" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Sid Bhattal | eXp Realty" },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "canonical", href: SITE_URL },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -118,6 +157,10 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: REAL_ESTATE_AGENT_LD_JSON }}
+        />
       </head>
       <body>
         {children}

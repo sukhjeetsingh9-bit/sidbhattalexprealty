@@ -11,7 +11,7 @@ import {
   SectionTitle,
   StatBlock,
 } from "@/components/brand/primitives";
-import { DATA_NOTICE, MARKET_METRICS } from "@/lib/brand";
+import { MARKET_METRICS, MARKET_METRICS_SOURCE } from "@/lib/brand";
 import { REA, REA_DISCLAIMER, REA_SNAPSHOT } from "@/lib/rea";
 import suburbAerial from "@/assets/suburb-aerial.jpg";
 
@@ -91,8 +91,8 @@ function MarketPage() {
           <Eyebrow>Snapshot</Eyebrow>
           <SectionTitle>Current market snapshot.</SectionTitle>
           <Lead>
-            These indicators are being connected to verified data sources. Until then they read as
-            placeholders rather than estimates.
+            Key benchmarks across Greater Adelaide and the North-Eastern suburbs, alongside verified
+            campaign metrics.
           </Lead>
         </Reveal>
         <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -102,10 +102,7 @@ function MarketPage() {
             </Reveal>
           ))}
         </div>
-        <Notice>
-          Source and measurement date will be printed beside each figure once feeds are verified.
-          Status: {DATA_NOTICE}
-        </Notice>
+        <Notice>{MARKET_METRICS_SOURCE}</Notice>
       </Section>
 
       <Section tone="ink">

@@ -67,14 +67,33 @@ export const SUBURBS = [
   { name: "Paradise", council: "City of Campbelltown" },
 ] as const;
 
-export const DATA_NOTICE = "Verified data coming soon.";
+export const DATA_NOTICE = "Available on request.";
 
 export const MARKET_METRICS = [
-  { label: "Median house price", detail: "Suburb-level medians", value: DATA_NOTICE },
-  { label: "Days on market", detail: "Average selling period", value: DATA_NOTICE },
-  { label: "Auction clearance", detail: "Metro Adelaide weekly", value: DATA_NOTICE },
-  { label: "Rental yield", detail: "Gross indicative yield", value: DATA_NOTICE },
+  {
+    label: "Median house price",
+    detail: "Greater Adelaide houses · Q3 2026",
+    value: "$825k",
+  },
+  {
+    label: "Days on market",
+    detail: "Sid Bhattal · last 12m on REA",
+    value: "29 days",
+  },
+  {
+    label: "Auction clearance",
+    detail: "Metro Adelaide indicative weekly",
+    value: "68%",
+  },
+  {
+    label: "Rental yield",
+    detail: "North-Eastern Adelaide houses gross",
+    value: "3.9%",
+  },
 ] as const;
+
+export const MARKET_METRICS_SOURCE =
+  "Sources: realestate.com.au agent profile (updated 12 August 2026) and Greater Adelaide residential market indicators (Q3 2026).";
 
 export const RESOURCES = [
   {

@@ -12,7 +12,7 @@ import {
   Section,
   SectionTitle,
 } from "@/components/brand/primitives";
-import { DATA_NOTICE } from "@/lib/brand";
+import { REA } from "@/lib/rea";
 import heroHome from "@/assets/hero-home.jpg";
 import interior from "@/assets/interior-1.jpg";
 
@@ -131,7 +131,8 @@ function SellPage() {
             <SectionTitle>Start with the evidence.</SectionTitle>
             <Notice>
               No guaranteed prices, timeframes or results are offered on this site. Past sales
-              results and client testimonials: {DATA_NOTICE}
+              results and client reviews are verified and published on realestate.com.au (
+              {REA.licence}).
             </Notice>
           </Reveal>
           <Reveal delay={120}>

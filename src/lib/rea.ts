@@ -38,7 +38,7 @@ export const REA_SNAPSHOT = [
 
 export type ReaListing = {
   id: string;
-  status: "For sale" | "Sold";
+  status: "For sale" | "Under offer" | "Sold";
   price: string;
   address: string;
   suburb: string;
@@ -71,7 +71,7 @@ export const REA_FOR_SALE: ReaListing[] = [
   {
     id: "204445204",
     status: "For sale",
-    price: "BEST OFFERS",
+    price: "Best Offers",
     address: "285A Wright Road",
     suburb: "Valley View, SA 5093",
     propertyType: "Residential land",
@@ -81,7 +81,7 @@ export const REA_FOR_SALE: ReaListing[] = [
   {
     id: "204445192",
     status: "For sale",
-    price: "BEST OFFERS",
+    price: "Best Offers",
     address: "285 Wright Road",
     suburb: "Valley View, SA 5093",
     propertyType: "Residential land",
@@ -91,8 +91,8 @@ export const REA_FOR_SALE: ReaListing[] = [
   },
   {
     id: "204419232",
-    status: "For sale",
-    price: "Under offer",
+    status: "Under offer",
+    price: "Under Offer",
     address: "22 Cowled Street",
     suburb: "Whyalla Norrie, SA 5608",
     propertyType: "Residential land",
